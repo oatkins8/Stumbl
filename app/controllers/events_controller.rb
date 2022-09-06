@@ -16,8 +16,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user = current_user
-    @venue.event = @event
+    @venue = Venue.find(params[:venue_id])
+    @event.venue = @venue
     authorize @event
     if @event.save
       redirect_to event_path(@event)
