@@ -1,1 +1,20 @@
-<H1>This is the event new page</H1>
+<H1 style="text-align:center;">This is the event new page</H1>
+<div class="container">
+<%= simple_form_for [@venue, @event]  do |f| %>
+  <%= f.input :name %>
+  <%= f.input :about%>
+  <%= f.input :category%>
+  <%= f.input :genre%>
+  <%= f.input :producer %>
+  <%= f.input :price%>
+  <%= f.input :time%>
+  <%= f.input :mini_description%>
+  <%= f.input :min_age%>
+  <%= f.input :tickets_available%>
+  <%= f.input :image%>
+  <%= f.input :cash%>
+  <%= f.input :card%>
+  <%= f.input :image%>
+  <%= f.button :submit %>
+<% end %>
+</div>

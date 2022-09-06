@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @venue = Venue.find(params[:venue_id])
     authorize @event
   end
 
@@ -47,6 +48,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    parmas.require(:event).premit(:date, :time, :price, :genre, :category, :producer, :name, :image, :about, :mini_description, :tickets_available, :cash, :card)
+    params.require(:event).permit(:date, :time, :price, :genre, :category, :producer, :name, :image, :about, :mini_description, :tickets_available, :cash, :card)
   end
 end
