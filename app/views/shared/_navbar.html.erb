@@ -15,8 +15,8 @@
       <%= render "shared/avatar" %>
     <% end %>
     <% else %>
-      <div class="sign-in">
-        <%= link_to "Login", new_user_session_path, class: "btn sign-in" %>
+      <div class="sign-in icon">
+        <%= link_to "<i class='fa-solid fa-user'></i>".html_safe, new_user_session_path, class: 'button-login' %>
       </div>
     <% end %>
   </div>
