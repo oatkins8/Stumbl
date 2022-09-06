@@ -1,0 +1,7 @@
+<H1>This is the event show page</H1>
+<%= @event.name %>
+    <% if policy(@event).edit? %>
+        <%= link_to "Edit this event", edit_event_path(@event) %> |
+    <% end %>
+    <!-- [...] -->
+        <%= button_to "Destroy this event", @event, method: :delete if policy(@event).destroy? %>
