@@ -1,1 +1,17 @@
-<H1>This is the event index page</H1>
+<H1>This is the Home page</H1>
+
+<%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
+
+
+<% @events.each do |event| %>
+<h2> <%= link_to event.name, event_path(event) %> </h2>
+<h3> $$ <%= event.price %> </h3>
+<% if event.cash == false %>
+<h2>cash <%= "❌" %></h2>
+<% else %>
+<h2>cash <%= "✅" %></h2>
+<% end  %>
+<% end %>
+
+
+<%# <h2> card <%= check_box_tag(event.card)%>
