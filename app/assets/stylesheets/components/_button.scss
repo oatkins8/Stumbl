@@ -116,3 +116,21 @@
     transform: scale(1.4);
   }
 }
+
+.btn-tickets {
+  background-color: #51adbf;
+  border: 2px solid #084C61;
+  box-shadow: 4px 4px 0 0 #084C61;
+  color: #2A324B;
+  font-weight: 600;
+  font-size: 18px;
+  padding:12px 18px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.btn-tickets:hover {
+  background-color: #61defa;
+}
