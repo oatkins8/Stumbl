@@ -5,8 +5,9 @@ class BookingsController < ApplicationController
     @event = Event.find(params[:event_id])
     @booking.user = current_user
     @booking.event = @event
+    authorize @booking
     if @booking.save
-      redirect_to event_path(@event)
+      redirect_to user_path(current_user)
     else
       render "events/show", status: :unprocessable_entity
     end

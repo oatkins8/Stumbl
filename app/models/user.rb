@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :venues
   has_many :events, through: :venues
   has_many :events, through: :bookings
+  has_many :bookings
 end
