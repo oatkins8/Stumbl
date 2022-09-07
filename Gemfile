@@ -80,3 +80,7 @@ group :test do
 end
 
 gem "pundit"
+
+gem "httparty"
+gem "nokogiri"
+gem "byebug"
