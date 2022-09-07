@@ -1,0 +1,10 @@
+<h1>user profile</h1>
+
+<div>
+  <% current_user.bookings.each do |booking| %>
+  <h1>Amount: <%= booking.quantity %></h1>
+  <h1>Event name: <%= booking.event.name %></h1>
+  <h1>Venue: <%= booking.event.venue.location %></h1>
+  <h1>Price: <%= booking.event.price %></h1>
+  <% end %>
+</div>

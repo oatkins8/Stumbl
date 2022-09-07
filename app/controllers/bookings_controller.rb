@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     @booking.event = @event
     authorize @booking
     if @booking.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       render "events/show", status: :unprocessable_entity
     end
