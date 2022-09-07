@@ -79,8 +79,6 @@ group :test do
   gem "webdrivers"
 end
 
-gem "pundit"
-
 gem "httparty"
 gem "nokogiri"
 gem "byebug"
