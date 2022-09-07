@@ -82,5 +82,9 @@ end
 gem "pundit"
 
 gem "httparty"
+
 gem "nokogiri"
+
 gem "byebug"
+
+gem "geocoder"
