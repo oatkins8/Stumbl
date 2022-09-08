@@ -2,9 +2,9 @@
 <h1> Add New Venue </h1>
 
 <%= simple_form_for @venue do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-   <%= f.input :about%>
+  <%= f.input :name, label: 'Venue name?'%>
+  <%= f.input :location, label: 'Where is it?' %>
+   <%= f.input :about, label: 'Describe your venue'%>
     <%= f.input :website %>
      <%= f.input :facebook %>
       <%= f.input :instagram %>

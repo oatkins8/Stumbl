@@ -1,19 +1,19 @@
 <H1 style="text-align:center;">This is the event new page</H1>
 <div class="container" style="padding-bottom: 75px;">
 <%= simple_form_for [@venue, @event]  do |f| %>
-  <%= f.input :name %>
-  <%= f.input :about%>
-  <%= f.input :category%>
-  <%= f.input :genre%>
-  <%= f.input :producer %>
+  <%= f.input :name, label: 'What is your event name?' %>
+  <%= f.input :about, label: 'What will your event be about?'%>
+  <%= f.input :category, label: 'What type of event is this?'%>
+  <%= f.input :genre, label: 'Add your event genre, if applicable'%>
+  <%= f.input :producer, label: 'Who is producing your event?' %>
   <%= f.input :price%>
   <%= f.input :time%>
   <%= f.input :mini_description%>
   <%= f.input :min_age%>
-  <%= f.input :tickets_available%>
-  <%= f.input :cash%>
-  <%= f.input :card%>
-  <%= f.input :image, as: :file %>
+  <%= f.input :tickets_available, label: 'How many tickets are available?'%>
+  <%= f.input :cash, label: 'Do you accept 💷 ?'%>
+  <%= f.input :card, label: 'Do you accept 💳 ?'%>
+  <%= f.input :image, as: :file, label: 'Upload an image of your event!' %>
   <p class="button-general"> <%= f.button :submit %> </p>
 <% end %>
 </div>
