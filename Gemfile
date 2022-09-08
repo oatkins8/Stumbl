@@ -79,6 +79,13 @@ group :test do
 end
 
 gem "httparty"
+
 gem "nokogiri"
+
 gem "byebug"
+
+
+gem "geocoder"
+
 gem "pg_search"
+

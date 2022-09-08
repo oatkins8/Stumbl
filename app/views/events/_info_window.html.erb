@@ -1,0 +1,8 @@
+<h2><%= venue.name %></h2>
+<p><%= venue.location %></p>
+<br>
+<br>
+<h2>Events at this venue:</h2>
+<% venue.events.each do |event| %>
+  <p><%= event.name %></p>
+<% end %>
