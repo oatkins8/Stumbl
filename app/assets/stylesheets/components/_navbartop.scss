@@ -1,5 +1,5 @@
 .navbar-top {
-  justify-content: space-between;
+  justify-content: space-around;
   background: transparent;
 }
 
@@ -8,5 +8,7 @@
 }
 
 .navbar-top .navbar-brand img {
-  width: 40px;
+  width: 70px;
+  border: solid $blue 1.5px;
+  border-radius: 50%;
 }
