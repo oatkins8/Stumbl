@@ -1,6 +1,25 @@
-<h2> Venue show Page </h2>
- <%= @venue.name %>
- <br>
- <%= @venue.location %>
+<%= render "shared/carousal" %>
+<div>
+  <div class="header-container">
+    <h2><%= @venue.name %></h2>
+    <div>
+      <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href=""><i class="fa-brands fa-facebook"></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a href=""><i class="fa-brands fa-instagram"></i></i></a>
+      </li>
+      <li class="list-inline-item">
+        <a href=""><i class="fa-solid fa-globe"></i></a>
+      </li>
+    </ul>
+    </div>
+</div>
 
-<%= link_to "New Event", new_venue_event_path(@venue) %>
+  <div class="container">
+    <i class="fa-solid fa-location-dot"></i> <%= @venue.location %>
+    <p> <%= @venue.about %></p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis molestias beatae nisi accusantium maiores nihil fuga error praesentium id soluta hic ullam corporis consectetur quia repellat, dolor, iste accusamus aliquam.</p>
+    <p><%= link_to "Add Event", new_venue_event_path(@venue), class: "btn btn-primary" %></p>
+  </div>
