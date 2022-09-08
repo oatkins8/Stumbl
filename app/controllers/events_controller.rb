@@ -2,17 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @events = policy_scope(Event)
 
-    @venues = Venue.all
-    # The `geocoded` scope filters only flats with coordinates
-    @markers = @venues.geocoded.map do |venue|
-      {
-        lat: venue.latitude,
-        lng: venue.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {venue: venue})
-      }
-    end
     if params[:query].present?
       sql_query = <<~SQL
         events.name @@ :query
@@ -23,8 +13,21 @@ class EventsController < ApplicationController
         OR venues.location @@ :query
       SQL
       @events = policy_scope(Event).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+
     else
       @events = policy_scope(Event)
+    end
+    @venues = @events.map do |event|
+      if event.venue.geocoded?
+        event.venue
+      end
+    end
+    @markers = @venues.compact.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {venue: venue})
+      }
     end
   end
 
