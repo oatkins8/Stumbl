@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 75px;">
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
@@ -8,6 +8,6 @@
       <%= f.input :instagram %>
        <%= f.input :logo %>
         <%= f.input :photos %>
-  <%= f.button :submit %>
+  <p class="button-general"><%= f.button :submit %> </p>
 <% end %>
 </div>
