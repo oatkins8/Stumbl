@@ -1,15 +1,25 @@
 <div class="container" style="padding-bottom: 75px;">
-<h1> Add New Venue </h1>
+<h1>Add your venue on Stumbl</h1>
 
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name %>
-  <%= f.input :location %>
-   <%= f.input :about%>
-    <%= f.input :website %>
-     <%= f.input :facebook %>
-      <%= f.input :instagram %>
-       <%= f.input :logo %>
-        <%= f.input :photos %>
+  <%= f.input :location,
+              input_html: {data: {address_autocomplete_target: "location"}},
+              wrapper_html: {data: {controller: "location-autocomplete", location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+              %>
+  <%= f.input :about%>
+  <%= f.input :website %>
+  <%= f.input :facebook %>
+  <%= f.input :instagram %>
+  <%= f.input :logo %>
+  <%= f.input :photos %>
+  <%= f.input :name, label: 'Venue name?'%>
+  <%= f.input :location, label: 'Where is it?' %>
+  <%= f.input :about, label: 'Describe your venue'%>
+  <%= f.input :website %>
+  <%= f.input :facebook %>
+  <%= f.input :instagram %>
+  <%= f.input :photo, as: :file, lable: 'Add a photo of your venue!'%>
   <p class="button-general"><%= f.button :submit %> </p>
 <% end %>
 </div>
