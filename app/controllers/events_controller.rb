@@ -13,7 +13,6 @@ class EventsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {venue: venue})
       }
     end
-
     if params[:query].present?
       sql_query = <<~SQL
         events.name @@ :query
