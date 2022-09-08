@@ -9,16 +9,5 @@
     <div class="favourite icon">
       <i class="fa-sharp fa-solid fa-heart"></i>
     </div>
-
-    <% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-     <%= link_to "#", class: "navbar-brand" do %>
-      <%= render "shared/avatar" %>
-    <% end %>
-    <% else %>
-      <div class="sign-in icon">
-        <%= link_to "<i class='fa-solid fa-user'></i>".html_safe, new_user_session_path, class: 'button-login' %>
-      </div>
-    <% end %>
   </div>
 </div>
