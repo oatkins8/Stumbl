@@ -1,19 +1,37 @@
-<h1>user profile</h1>
-<div class="profile-container">
-  <div class="bookings-container">
-    <% current_user.bookings.each do |booking| %>
-    <h1>Amount: <%= booking.quantity %></h1>
-    <h1>Event name: <%= booking.event.name %></h1>
-    <h1>Venue: <%= booking.event.venue.location %></h1>
-    <h1>Price: <%= booking.event.price %></h1>
-    <% end %>
-  </div>
-<br>
-  <div class="venue-container">
-    <h1>Your venues</h1>
-      <% current_user.venues.each do |venue|  %>
-      <h2>Name: <%= venue.name %></h2>
-      <h2>Location: <%= venue.location %></h2>
+<ul class="nav nav-tabs user-nav justify-content-center" id="myTab" role="tablist">
+  <li class="nav-item" style="background-color: #068D9D  ;" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My Events</button>
+  </li>
+  <li class="nav-item " style="background-color: #068D9D ;" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Venues</button>
+  </li>
+</ul>
+
+<p>  Welcome <%= current_user.first_name %> <%= current_user.last_name%> </p>
+<p> Here are </p>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
+    <p>your Events</p>
+      <div>
+        <% current_user.bookings.each do |booking| %>
+      <p>Amount: <%= booking.quantity %></p>
+      <p>Event name: <%= booking.event.name %></p>
+      <p>Venue: <%= booking.event.venue.location %></p>
+      <p>Price: £<%= booking.event.price %></p>
       <% end %>
+    </div>
+  </div>
+
+  
+  
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <p>your venues</p>
+      <div class="profile_card">
+          <% current_user.venues.each do |venue|  %>
+          <p>Name: <%= venue.name %></p>
+          <p>Location: <%= venue.location %></p>
+          <% end %>
+    </div>
   </div>
 </div>
