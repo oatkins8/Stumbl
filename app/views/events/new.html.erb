@@ -11,10 +11,9 @@
   <%= f.input :mini_description%>
   <%= f.input :min_age%>
   <%= f.input :tickets_available%>
-  <%= f.input :image%>
   <%= f.input :cash%>
   <%= f.input :card%>
-  <%= f.input :image%>
+  <%= f.input :image, as: :file %>
   <p class="button-general"> <%= f.button :submit %> </p>
 <% end %>
 </div>
