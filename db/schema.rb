@@ -93,12 +93,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_143908) do
     t.string "location"
     t.string "name"
     t.string "photos"
-    t.string "venue"
     t.text "about"
     t.string "website"
     t.string "facebook"
     t.string "instagram"
-    t.string "photo"
+    t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
