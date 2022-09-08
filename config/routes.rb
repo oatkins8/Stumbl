@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :venues, except: [:index] do
     resources :events, only: [:new, :create, :edit, :update, :destroy]
   end
+  resources :users, only: [:show]
 end

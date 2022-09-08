@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!
+
   def index
     @events = policy_scope(Event)
 
@@ -11,6 +12,19 @@ class EventsController < ApplicationController
         lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: {venue: venue})
       }
+
+    if params[:query].present?
+      sql_query = <<~SQL
+        events.name @@ :query
+        OR events.category @@ :query
+        OR events.genre @@ :query
+        OR events.producer @@ :query
+        OR venues.name @@ :query
+        OR venues.location @@ :query
+      SQL
+      @events = policy_scope(Event).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @events = policy_scope(Event)
     end
   end
 

@@ -1,8 +1,20 @@
-
+<%= form_with url: events_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find Event!"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<p><%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %></p>
+<%# <%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
-<%# <%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
+
+
+
+
