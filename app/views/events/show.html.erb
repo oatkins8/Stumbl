@@ -1,6 +1,8 @@
-<H1>This is the event show page</H1>
+<h1>This is the event show page</h1>
 <%= @event.name %>
-
 
 <p><%= link_to "Venue Page", venue_path(@event.venue) %></p>
 <p><%= link_to "All Events", events_path %></p>
+<p><%= link_to "Book"%></p>
+
+<%= render "shared/booking_form", booking: @booking, event: @event %>

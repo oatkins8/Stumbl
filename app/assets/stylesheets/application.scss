@@ -6,11 +6,15 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+// @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 
 body {
-  background-color: $darker_blue;
+  background-color: #6EFAFB
 }
+
+
+// $darker_blue;

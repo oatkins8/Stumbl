@@ -1,17 +1,17 @@
-<H1>This is the Home page</H1>
-
-<%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
-
-
-<% @events.each do |event| %>
-<h2> <%= link_to event.name, event_path(event) %> </h2>
-<h3> $$ <%= event.price %> </h3>
-<% if event.cash == false %>
-<h2>cash <%= "❌" %></h2>
-<% else %>
-<h2>cash <%= "✅" %></h2>
-<% end  %>
+<%= form_with url: events_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find Event!"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<%# <%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
 
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-<%# <h2> card <%= check_box_tag(event.card)%>
+<p><%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %></p>
