@@ -16,6 +16,7 @@ body {
   background-color: #6EFAFB
 }
 
+
 .carousel .item {
   height: 300px;
 }
@@ -28,3 +29,9 @@ body {
 }
 
 // $darker_blue;
+
+.top-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}

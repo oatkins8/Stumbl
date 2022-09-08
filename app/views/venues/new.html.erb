@@ -1,16 +1,14 @@
+<div class="container" style="padding-bottom: 75px;">
+<h1>Add your venue on Stumbl</h1>
 
-
-<div class="container w-75">
-<h1> Add New Venue </h1>
 <%= simple_form_for @venue do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-   <%= f.input :about%>
+  <%= f.input :name, label: 'Venue name?'%>
+  <%= f.input :location, label: 'Where is it?' %>
+   <%= f.input :about, label: 'Describe your venue'%>
     <%= f.input :website %>
      <%= f.input :facebook %>
       <%= f.input :instagram %>
-       <%= f.input :photo %>
-        <%= f.input :photos %>
-  <%= f.button :submit %>
+        <%= f.input :photo, as: :file, lable: 'Add a photo of your venue!'%>
+  <p class="button-general"><%= f.button :submit %> </p>
 <% end %>
 </div>
