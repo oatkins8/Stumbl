@@ -1,7 +1,6 @@
-
-
-<div class="container w-75">
+<div class="container" style="padding-bottom: 75px;">
 <h1> Add New Venue </h1>
+
 <%= simple_form_for @venue do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
@@ -9,8 +8,8 @@
     <%= f.input :website %>
      <%= f.input :facebook %>
       <%= f.input :instagram %>
-       <%= f.input :photo %>
+       <%= f.input :logo %>
         <%= f.input :photos %>
-  <%= f.button :submit %>
+  <p class="button-general"><%= f.button :submit %> </p>
 <% end %>
 </div>
