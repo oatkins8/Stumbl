@@ -8,6 +8,7 @@ Event.destroy_all
 puts "1"
 Venue.destroy_all
 puts "Creating users, venues and events ..."
+User.destroy_all
 
 def scraper
   user_one = User.create!(

@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   belongs_to :venue
   include PgSearch::Model
   has_many_attached :images
