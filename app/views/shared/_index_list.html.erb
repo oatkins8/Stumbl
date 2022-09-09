@@ -1,0 +1,14 @@
+<div class="row">
+  <% @events.each do |event| %>
+      <div class="col-6 card-event">
+        <%= cl_image_tag event.images.first.key, crop: :fit %>
+          <div class="card-event-infos">
+            <div class= "card-event-info">
+              <p class= "event-title"><%= event.name %></p>
+              <p class= "event-price">£<%= event.price %></p>
+            </div>
+              <p class= "event-mini-description"><%= event.mini_description %></p>
+          </div>
+      </div>
+  <% end %>
+</div>

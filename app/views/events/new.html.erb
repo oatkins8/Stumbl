@@ -13,7 +13,7 @@
   <%= f.input :tickets_available, label: 'How many tickets are available?'%>
   <%= f.input :cash, label: 'Do you accept 💷 ?'%>
   <%= f.input :card, label: 'Do you accept 💳 ?'%>
-  <%= f.input :image, as: :file, label: 'Upload an image of your event!' %>
+  <%= f.input :images, as: :file, input_html: { multiple: true } %>
   <p class="button-general"> <%= f.button :submit %> </p>
 <% end %>
 </div>
