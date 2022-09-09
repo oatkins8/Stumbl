@@ -14,6 +14,7 @@
   </head>
 
   <body>
+
   <div class="top-icons">
     <div>
       <a href="/events"><%= image_tag "logo.png", class: "top-avatar" %></a>
@@ -22,8 +23,10 @@
         <%= render "shared/avatar" %>
       </div>
   </div>
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
+<div class="main-container">
     <%= yield %>
+</div>
+    <%= render "shared/navbar" %>
   </body>
 </html>

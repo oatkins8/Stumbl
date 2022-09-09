@@ -16,13 +16,13 @@
 
       <div>
         <% current_user.bookings.each do |booking| %>
-        <div class="profile_card">
-          <p>Amount: <%= booking.quantity %></p>
-          <p>Event name: <%= booking.event.name %></p>
-          <p>Venue: <%= booking.event.venue.location %></p>
-          <p>Price: £<%= booking.event.price %></p>
-          <% end %>
-      </div>
+          <div class="profile_card">
+            <p>Amount: <%= booking.quantity %></p>
+            <p>Event name: <%= booking.event.name %></p>
+            <p>Venue: <%= booking.event.venue.location %></p>
+            <p>Price: £<%= booking.event.price %></p>
+          </div>
+        <% end %>
     </div>
   </div>
 
