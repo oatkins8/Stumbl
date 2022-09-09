@@ -18,7 +18,7 @@
               <% @events.each do |event| %>
                 <%= link_to event_path(event) do %>
                   <div class="card-event">
-                    <%= cl_image_tag event.images.first.key, crop: :fit %>
+                    <%#= cl_image_tag event.images.first.key, crop: :fit %>
                     <div class="card-event-infos">
                       <div>
                         <h2 style = "color: black"><%= event.name %></h2>
