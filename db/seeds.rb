@@ -29,7 +29,7 @@ def scraper
     venue_one = Venue.create(
       name: event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text,
       location: "#{event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text}, #{event_listing.css('div.artists-venue-location-wrapper').css('span.city-name').text}",
-      photo: "",
+      photos: "",
       website: "venue website url goes here",
       facebook: "facebook icon url goes here",
       instagram: "instagram icon url goes here",
