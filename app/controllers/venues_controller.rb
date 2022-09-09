@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
 
   def show
+    @events = Event.all
     @venue = Venue.find(params[:id])
     authorize @venue
   end
