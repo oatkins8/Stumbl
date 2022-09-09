@@ -1,13 +1,29 @@
-<h1>This is the event show page</h1>
-<%= @event.name %>
 
-<p><%= link_to "Venue Page", venue_path(@event.venue) %></p>
-<p><%= link_to "All Events", events_path %></p>
-<p><%= link_to "Book" %></p>
+<%= render "shared/carousal" %>
 
 
 
-<button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
+
+    <div class="container" style="padding-bottom: 85px;">
+      <div class="header-container">
+        <h2><%= @event.name.titleize %></h2>
+        <div>
+          <p><%= link_to "logo", venue_path(@event.venue), class: "logo" %> </p>
+        </div>
+    </div>
+    <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
+     <p> £ <%= @event.price %></p>
+     <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
+     <p> 🗓 <%= @event.date.to_formatted_s(:long) %></p>
+     <p> <%= @event.about %></p>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis molestias beatae nisi accusantium maiores nihil fuga error praesentium id soluta hic ullam corporis consectetur quia repellat, dolor, iste accusamus aliquam.</p>
+    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
+  </div>
+
+
+
+
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">

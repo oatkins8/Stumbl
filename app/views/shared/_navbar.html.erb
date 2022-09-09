@@ -1,13 +1,105 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="map icon">
-      <%= link_to "<i class='fa-solid fa-magnifying-glass'></i>".html_safe, events_path %>
+      <%= link_to "<i class='fa-solid fa-magnifying-glass'></i>".html_safe, "#{events_path}#event-cards" %>
     </div>
-    <div class="grid icon">
-      <%= link_to "<i class='fa-solid fa-grip'></i>".html_safe, events_path %>
+        <div class="grid icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+      <i class='fa-solid fa-grip'></i>
     </div>
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Stumbl events near you</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body small">
+
+<div class="cards">
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title</h2>
+      <p>🗓 Date 📍 Venue</p>
+    </div>
+    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  </div>
+</div>
+</div>
+
+  </div>
+        </div>
     <div class="favourite icon">
       <i class="fa-sharp fa-solid fa-heart"></i>
     </div>
-  </div>
 </div>
