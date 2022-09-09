@@ -4,6 +4,7 @@
   bottom: 0;
   width: 100vw;
   height: 10vh;
+  z-index: 10;
 }
 
 .container-fluid {
@@ -28,8 +29,10 @@
   }
 }
 
-
-
 .navbar-toggler span {
   color: $blue;
+}
+
+#offcanvasBottom {
+  height: 90vh;
 }

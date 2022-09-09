@@ -15,6 +15,7 @@
 
       <div>
         <% current_user.bookings.each do |booking| %>
+
         <div class="profile_card">
         <%= link_to event_path(booking.event) do %>
         <h3 class="ticket_title"> Event Ticket </h3>
