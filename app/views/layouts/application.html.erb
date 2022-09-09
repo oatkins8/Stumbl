@@ -19,14 +19,17 @@
     <div>
       <a href="/events"><%= image_tag "logo.png", class: "top-avatar" %></a>
     </div>
-      <div>
-        <%= render "shared/avatar" %>
-      </div>
+    <div>
+    <h2> Stumbl </h2>
+    </div>
+    <div>
+      <%= render "shared/avatar" %>
+    </div>
   </div>
     <%= render "shared/flashes" %>
-<div class="main-container">
-    <%= yield %>
-</div>
-    <%= render "shared/navbar" %>
-  </body>
+    <div class="main-container">
+      <%= yield %>
+    </div>
+  <%= render "shared/navbar" %>
+</body>
 </html>
