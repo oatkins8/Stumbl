@@ -67,6 +67,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @events = Event.all
     @event = Event.find(params[:id])
     authorize @event
   end

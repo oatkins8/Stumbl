@@ -7,6 +7,7 @@ class VenuesController < ApplicationController
   end
 
   def new
+    @events = Event.all
     @venue = Venue.new
     authorize @venue
   end
@@ -23,6 +24,7 @@ class VenuesController < ApplicationController
   end
 
   def edit
+    @events = Event.all
     @venue = Venue.find(params[:id])
   end
 
