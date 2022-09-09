@@ -35,12 +35,14 @@ class EventsController < ApplicationController
   end
 
   def show
+    @events = Event.all
     @booking = Booking.new
     @event = Event.find(params[:id])
     authorize @event
   end
 
   def new
+    @events = Event.all
     @event = Event.new
     @venue = Venue.find(params[:venue_id])
     authorize @event
