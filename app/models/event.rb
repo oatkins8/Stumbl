@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  acts_as_favoritable
   has_many :bookings, dependent: :destroy
   belongs_to :venue
   include PgSearch::Model

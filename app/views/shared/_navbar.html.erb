@@ -4,36 +4,39 @@
       <div class="map icon">
         <%= link_to "<i class='fa-solid fa-magnifying-glass'></i>".html_safe, "#{events_path}#event-cards" %>
       </div>
-      <div class="grid icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+      <div class="grid icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasBottom" aria-controls="offCanvasBottom">
         <i class='fa-solid fa-grip'></i>
       </div>
 
-      <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasBottom" aria-labelledby="offCanvasBottomLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasBottomLabel">Stumbl events near you</h5>
+          <h5 class="offcanvas-title" id="offCanvasBottomLabel">Stumbl events near you</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body small">
           <div class="cards">
               <% @events.each do |event| %>
-                <%= link_to event_path(event) do %>
-                  <div class="card-event">
-                    <%#= cl_image_tag event.images.first.key, crop: :fit %>
-                    <div class="card-event-infos">
-                      <div>
-                        <h2 style = "color: black"><%= event.name %></h2>
-                        <p style = "color: black">🗓 <%= event.date %> 📍 <%= event.venue.location %></p>
-                      </div>
-                      <h2 class="card-event-pricing" style = "color: black">💷 £<%= event.price %></h2>
-                    </div>
-                  </div>
-                <% end %>
+                <%= render 'events/card', event: event %>
               <% end %>
           </div>
         </div>
       </div>
-      <div class="favourite icon">
-        <i class="fa-sharp fa-solid fa-heart"></i>
+
+      <div class="favourite icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasHeart" aria-controls="offCanvasHeart">
+        <i class="fas fa-heart"></i>
+      </div>
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasHeart" aria-labelledby="offCanvasHeartLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offCanvasHeartLabel">Test</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+          <div class="offcanvas-body small">
+          <div class="cards">
+            <% current_user.all_favorited.each do |event| %>
+              <%= render 'events/card', event: event %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

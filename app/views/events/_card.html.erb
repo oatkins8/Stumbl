@@ -1,0 +1,21 @@
+<div class="card-event">
+  <div class="card-event-infos">
+    <%= link_to event_path(event) do %>
+      <div>
+        <h2 style = "color: black"><%= event.name %></h2>
+        <p style = "color: black">🗓 <%= event.date %> 📍 <%= event.venue.location %></p>
+      </div>
+      <h2 class="card-event-pricing" style = "color: black">💷 £<%= event.price %></h2>
+    <% end %>
+      <div class="like-icon mx-2" data-id="<%= event.id %>">
+        <% favorited = current_user.favorited?(event) %>
+        <%= link_to toggle_favorite_event_path(event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
+          <% if favorited %>
+            <i class="favorite fas fa-heart"></i>
+          <% else %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
