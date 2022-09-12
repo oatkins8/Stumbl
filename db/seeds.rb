@@ -48,6 +48,8 @@ def scraper
       about: "full description / overview goes here",
       category: %w(music cinema art sport).sample,
       venue: venue_one,
+      cash: true,
+      card: true,
       date: "Mon, 12 Sep 2022",
       time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00"
     )
