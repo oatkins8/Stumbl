@@ -44,7 +44,7 @@ def scraper
       name: event_listing.css('div.artists-venue-location-wrapper').css('strong').text,
       mini_description: "mini description goes here",
       producer: "Support: #{event_listing.css('div.artists-venue-location-wrapper').css('span.support').text}",
-      price: rand(5..50),
+      price: rand(0..50),
       about: "full description / overview goes here",
       category: %w(music cinema art sport).sample,
       genre: %w(DJ electronic techno indie rock).sample,

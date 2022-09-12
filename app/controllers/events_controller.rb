@@ -22,60 +22,8 @@ class EventsController < ApplicationController
 
 
     params.delete_if { |key, _| params[key] == 'Any' }
-    # @events = Event.all if (params[:category] == "Any") || (params[:genre] == "Any") || (params[:price] == "Any")
     @events = Event.filter(params.slice(:category, :genre))
     @events = @events.select { |event| event.price_range == params[:price] } if params[:price].present?
-
-
-
-
-
-
-
-
-
-
-
-    # if params[:category] == 'Any'
-    #   @events = @events.select(&:category)
-    # elsif params[:category].present?
-    #   @events = Event.category(params[:category])
-    # end
-
-    # if params[:genre] == 'Any'
-    #   @events = @events.select(&:genre)
-    # elsif params[:genre].present?
-    #   @events = Event.category(params[:genre])
-    # end
-
-
-
-
-
-
-
-    # if params[:genre] == 'Any'
-    #   @events = @events.select(&:genre)
-    # elsif params[:genre].present?
-    #   @events = Event.genre(params[:genre])
-    # end
-
-
-
-
-    # if params[:price] == 'Any' # price search functionality
-    #   @events = @events.select(&:price)
-    # elsif params[:price].present?
-    #   @events = @events.select { |event| event.price_range == params[:price] }
-    # end
-
-    # @events = @events.select(&:genre) if params[:genre] == 'All'
-
-
-
-    # @events = @events.select(&:category) if params[:category] == "All"
-
-
 
     # we are creating a new array @venues which stores all of the @events that have a geocoded venue attached
     @venues = @events.map do |event|

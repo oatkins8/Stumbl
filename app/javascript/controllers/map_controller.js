@@ -50,4 +50,12 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 
+  // // Add the control to the map.
+  // const geocoder = new MapboxGeocoder({
+  // accessToken: mapboxgl.accessToken,
+  // mapboxgl: mapboxgl
+  // });
+
+  // document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
 }
