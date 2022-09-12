@@ -20,12 +20,15 @@
 
 
 <%= render "shared/cards_carousel" %>
-
 <%= form_with url: events_path, method: :get do |event| %>
-  <%= event.select :category, [["sport"], ["music"], ["art"], ["cinema"] ],
+  <%= event.select :category, [["Any"],["sport"], ["music"], ["art"], ["cinema"] ],
+  value: params[:category],
   class: "form-control" %>
-  <%= event.select :price, [["Free"], ["Under £10"], ["Under £20"], ["£20+"]],
+  <%= event.select :genre, [["Any"],["electronic"], ["DJ"], ["indie"], ["rock"], ["techno"]],
+  value: params[:genre],
   class: "form-control" %>
-
+  <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+  value: params[:price],
+  class: "form-control" %>
   <%= submit_tag "submit", class: "btn btn-primary" %>
 <% end %>
