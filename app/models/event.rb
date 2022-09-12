@@ -1,8 +1,30 @@
 class Event < ApplicationRecord
+  include Filterable
+  scope :category, ->(category) { where(category: category) }
+  scope :genre, ->(genre) { where(genre: genre) }
+  scope :price, ->(price) { where(price: price) }
+
+  def price_range
+    case price
+    when nil
+      "Error"
+    when 0
+      "Free"
+    when 0.01..9.99
+      "Under £10"
+    when 10..19.99
+      "Under £20"
+    else
+      "Over £20"
+    end
+  end
+  
+  acts_as_favoritable
   has_many :bookings, dependent: :destroy
   belongs_to :venue
   include PgSearch::Model
   has_many_attached :images
+  monetize :price_cents
   pg_search_scope :global_search,
                   against: [ :name, :category, :genre, :producer ],
                   associated_against: {
@@ -11,4 +33,14 @@ class Event < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  validates :name, presence: true, length: { in: 2..100 }
+  validates :date, presence: true
+  validates :time, presence: true
+  validates :category, presence: true
+  # validates :image, presence: true
+  validates :about, presence: true, length: { in: 2..350 }
+  validates :mini_description, presence: true, length: { in: 10..30 }
+  validates :cash, presence: true
+  validates :card, presence: true
 end

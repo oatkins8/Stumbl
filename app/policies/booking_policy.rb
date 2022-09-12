@@ -9,4 +9,8 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def payment?
+    true
+  end
 end

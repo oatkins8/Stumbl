@@ -44,12 +44,17 @@ def scraper
       name: event_listing.css('div.artists-venue-location-wrapper').css('strong').text,
       mini_description: "mini description goes here",
       producer: "Support: #{event_listing.css('div.artists-venue-location-wrapper').css('span.support').text}",
-      price: "£#{rand(5..50)}",
+      price: rand(5..50),
       about: "full description / overview goes here",
       category: %w(music cinema art sport).sample,
+      genre: %w(DJ electronic techno indie rock).sample,
       venue: venue_one,
+      cash: true,
+      card: true,
       date: "Mon, 12 Sep 2022",
-      time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00"
+      time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00",
+      cash: %w(true false).sample,
+      card: %w(true false).sample
     )
     file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
     event.images.attach(io: file, filename: "venue_image_#{i * i}.jpg", content_type: "image/jpg")
