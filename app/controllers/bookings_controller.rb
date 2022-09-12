@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @booking = Booking.new(booking_params)
     @event = Event.find(params[:event_id])
