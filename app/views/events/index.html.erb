@@ -1,5 +1,6 @@
 <div class="main-map">
   <div class="fluid-container map-box">
+      <%# search search %>
     <%= form_with url: events_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -16,3 +17,18 @@
     </div>
   </div>
 </div>
+
+
+<%= render "shared/cards_carousel" %>
+<%= form_with url: events_path, method: :get do |event| %>
+  <%= event.select :category, [["Any"],["sport"], ["music"], ["art"], ["cinema"] ],
+  value: params[:category],
+  class: "form-control" %>
+  <%= event.select :genre, [["Any"],["electronic"], ["DJ"], ["indie"], ["rock"], ["techno"]],
+  value: params[:genre],
+  class: "form-control" %>
+  <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+  value: params[:price],
+  class: "form-control" %>
+  <%= submit_tag "submit", class: "btn btn-primary" %>
+<% end %>

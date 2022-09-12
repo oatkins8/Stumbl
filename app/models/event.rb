@@ -1,4 +1,24 @@
 class Event < ApplicationRecord
+  include Filterable
+  scope :category, ->(category) { where(category: category) }
+  scope :genre, ->(genre) { where(genre: genre) }
+  scope :price, ->(price) { where(price: price) }
+
+  def price_range
+    case price
+    when nil
+      "Error"
+    when 0
+      "Free"
+    when 0.01..9.99
+      "Under £10"
+    when 10..19.99
+      "Under £20"
+    else
+      "Over £20"
+    end
+  end
+  
   acts_as_favoritable
   has_many :bookings, dependent: :destroy
   belongs_to :venue
@@ -13,6 +33,7 @@ class Event < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
   validates :name, presence: true, length: { in: 2..100 }
   validates :date, presence: true
   validates :time, presence: true

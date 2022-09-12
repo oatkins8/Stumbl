@@ -8,8 +8,19 @@
           <%= link_to venue_path(@event.venue), class: "logo-size" do %>
             <%= cl_image_tag @event.venue.logo.key %>
           <% end %>
+         </div> 
+          <div class="like-icon mx-2" data-id="<%= @event.id %>">
+            <% favorited = current_user.favorited?(@event) %>
+            <%= link_to toggle_favorite_event_path(@event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
+              <% if favorited %>
+                <i class="favorite fas fa-heart"></i>
+              <% else %>
+                <i class="fa-regular fa-heart"></i>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-    </div>
+      </div>
     <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
      <p style="padding-top: 15px;"><%= humanized_money_with_symbol(@event.price)%> /ticket</p>
      <div class="d-flex ">

@@ -1,42 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-<img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-<img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-<img class="avatar-square" alt="avatar-square" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
 
-
-<%= render "shared/search" %>
-
-<div class="cards">
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title</h2>
-      <p>🗓 Date 📍 Venue</p>
-    </div>
-    <h2 class="card-trip-pricing">💷 £99.99</h2>
+<div class="container home-page">
+  <div class="stumbl">
+    <h2>Stumbl</h2>
   </div>
-</div>
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title</h2>
-      <p>🗓 Date 📍 Venue</p>
-    </div>
-    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  <div>
+   <img src="/assets/stumbl_logo.jpg" alt="Logo" width="100%" >
   </div>
-</div>
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"/>
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title</h2>
-      <p>🗓 Date 📍 Venue</p>
-    </div>
-    <h2 class="card-trip-pricing">💷 £99.99</h2>
+  <div class="stumbl_sml">
+    <%= link_to "Find an event".html_safe, events_path, class: "button-general" %>
+    <%# <%= link_to "<p>Find an event</p>".html_safe, events_path, class: "stumbl_sml_text" %>
   </div>
-</div>
 </div>
