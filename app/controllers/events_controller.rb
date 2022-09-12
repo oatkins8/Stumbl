@@ -18,6 +18,12 @@ class EventsController < ApplicationController
       # if nothing is typed in the search it shows all the events..
       @events = policy_scope(Event)
     end
+
+      if params[:price].present?
+        @events = @events.select { |event| event.price_range == params[:price]}
+        raise
+      end
+
     # we are creating a new array @venues which stores all of the @events that have a geocoded venue attached
     @venues = @events.map do |event|
       event.venue if event.venue.geocoded?
