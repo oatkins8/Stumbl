@@ -12,7 +12,8 @@
         </div>
     </div>
     <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
-     <p> £ <%= @event.price %></p>
+     <p> £ <%= @event.price %> per ticket </p>
+     <p> 🎟 <%= @event.tickets_available%> Aviailable </p>
      <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
      <p> 🗓 <%= @event.date.to_formatted_s(:long) %></p>
      <p> <%= @event.about %></p>
