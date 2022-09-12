@@ -1,0 +1,40 @@
+.button-landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #13e2ca;
+  // border: 2px solid #084C61;
+  // box-shadow: 4px 4px 0 0 #084C61;
+  color: #2A324B !important;
+  font-weight: 600;
+  font-size: 14px;
+  padding-top:6px;
+  padding-bottom: 6px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  border-radius: 35px;
+  width: 200px;
+  height: 57px;
+  input {
+    font-size: 14px;
+  }
+}
+
+.button-landing:hover {
+  background-color: #acf0ff;
+}
+
+a:link {
+  color:#2A324B;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 20px !important;
+}
