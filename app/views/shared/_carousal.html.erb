@@ -9,10 +9,16 @@
   <div class="carousel-inner">
 
     <% images.each do |image| %>
-      <div class="carousel-item active">
+      <div class="carousel-item <%= 'active' if image == images[0] %>">
         <%= cl_image_tag image.key, class: "d-block w-100" %>
       </div>
     <% end %>
+    <%# <div class="carousel-item">
+      <img src="https://goodlookevents.co.uk/wp-content/uploads/2021/12/1007_554C1977-EJacobs-Photography-Copy.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.gl-events.com/sites/glevents2022/files/styles/max_2600x2600/public/2019-03/about_us.jpg?itok=VCR0q3hv" class="d-block w-100" alt="...">
+    </div> %>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
