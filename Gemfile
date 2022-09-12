@@ -92,3 +92,5 @@ gem "pg_search"
 gem "pundit"
 
 gem "cloudinary"
+
+gem 'acts_as_favoritor'
