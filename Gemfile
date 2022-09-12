@@ -93,4 +93,10 @@ gem "pundit"
 
 gem "cloudinary"
 
+
+gem 'money-rails'
+
+gem 'stripe'
+
 gem 'acts_as_favoritor'
+
