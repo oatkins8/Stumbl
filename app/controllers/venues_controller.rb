@@ -13,6 +13,7 @@ class VenuesController < ApplicationController
   end
 
   def create
+    @events = Event.all
     @venue = Venue.new(venue_params)
     @venue.user = current_user
     authorize @venue
