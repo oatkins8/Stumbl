@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:show]
   def show
     @events = Event.all
     @venue = Venue.find(params[:id])
@@ -13,6 +13,7 @@ class VenuesController < ApplicationController
   end
 
   def create
+    @events = Event.all
     @venue = Venue.new(venue_params)
     @venue.user = current_user
     authorize @venue

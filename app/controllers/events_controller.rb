@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :authenticate_user!, only: [:toggle_favorite]
 
   def index
     # Using search bar to filter events if query was typed...
@@ -135,6 +136,12 @@ class EventsController < ApplicationController
     authorize @event
     @event.update(event_params)
     redirect_to event_path(@event)
+  end
+
+  def toggle_favorite
+    # @event = Event.find_by(id: params[:id])
+    @event = Event.find(params[:id])
+    current_user.favorited?(@event) ? current_user.unfavorite(@event) : current_user.favorite(@event)
   end
 
   private

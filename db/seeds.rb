@@ -49,6 +49,8 @@ def scraper
       category: %w(music cinema art sport).sample,
       genre: %w(DJ electronic techno indie rock).sample,
       venue: venue_one,
+      cash: true,
+      card: true,
       date: "Mon, 12 Sep 2022",
       time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00",
       cash: %w(true false).sample,
