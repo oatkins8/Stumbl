@@ -92,3 +92,7 @@ gem "pg_search"
 gem "pundit"
 
 gem "cloudinary"
+
+gem 'money-rails'
+
+gem 'stripe'
