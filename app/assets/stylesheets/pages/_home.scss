@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.home-page {
+    background-color: white;
+    height: 100vh;
+    margin-bottom: -100px;
+}
+
+.stumbl {
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #000000;
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    h2 {
+        font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
+        font-size: 58px;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    }
+}
+  
+.stumbl_sml {
+    text-align: center;
+    padding-top: 35px;
+
+}
+
+.stumbl_sml_text p {
+   
+    font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
+    font-size: 30px;  
+    text-shadow: 3px 3px 0px rgba(45, 45, 45, 0.1);
+}

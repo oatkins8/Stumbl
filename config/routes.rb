@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "events#index"
+  root to: "pages#home"
   resources :events, only: [:index, :show] do
     resources :bookings, only: [:create]
   end
@@ -9,3 +9,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
 end
+
+
+#root to: "events#index"
