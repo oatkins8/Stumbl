@@ -1,11 +1,13 @@
 
-<%= render "shared/carousal" %>
+<%= render "shared/carousal", images: @event.images %>
 
     <div class="container" style="padding-bottom: 70px;">
       <div class="header-container">
         <h2><%= @event.name.titleize %></h2>
         <div>
-          <p><%= link_to "logo", venue_path(@event.venue), class: "logo" %> </p>
+          <%= link_to venue_path(@event.venue), class: "logo-size" do %>
+            <%= cl_image_tag @event.venue.logo.key %>
+          <% end %>
         </div>
     </div>
     <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
