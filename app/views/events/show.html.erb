@@ -1,15 +1,11 @@
 
 <%= render "shared/carousal", images: @event.images %>
 
-    <div class="container" style="padding-bottom: 70px;">
+    <div class="container" style="padding-bottom: 65px;">
       <div class="header-container">
         <h2><%= @event.name.titleize %></h2>
-        <div>
-          <%= link_to venue_path(@event.venue), class: "logo-size" do %>
-            <%= cl_image_tag @event.venue.logo.key %>
-          <% end %>
-         </div> 
-          <div class="like-icon mx-2" data-id="<%= @event.id %>">
+        <div class="d-flex">
+          <div class="like-icon mx-3 pt-3" data-id="<%= @event.id %>">
             <% favorited = current_user.favorited?(@event) %>
             <%= link_to toggle_favorite_event_path(@event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
               <% if favorited %>
@@ -19,9 +15,15 @@
               <% end %>
             <% end %>
           </div>
+          <div class="heart-logo">
+            <p> Venue </p>
+            <%= link_to venue_path(@event.venue), class: "logo-size" do %>
+            <%= cl_image_tag @event.venue.logo.key %>
+          <% end %>
+         </div>
+         </div>
         </div>
-      </div>
-    <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
+        <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
      <p style="padding-top: 15px;"><%= humanized_money_with_symbol(@event.price)%> /ticket</p>
      <div class="d-flex ">
         <% if @event.cash == false %>
@@ -46,7 +48,10 @@
     <% else %>
     <%= link_to "Book Here",  new_user_session_path, class: "button-general" %>
     <% end %>
-  </div>
+</div>
+
+
+
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
