@@ -108,6 +108,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @events = Event.all
     @event = Event.new(event_params)
     @venue = Venue.find(params[:venue_id])
     @event.venue = @venue
@@ -147,6 +148,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :time, :price, :genre, :category, :producer, :name, :image, :about, :mini_description, :tickets_available, :cash, :card)
+    params.require(:event).permit(:date, :time, :price, :genre, :category, :producer, :name, :about, :mini_description, :tickets_available, :cash, :card, images: [],)
   end
 end

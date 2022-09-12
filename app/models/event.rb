@@ -41,6 +41,6 @@ class Event < ApplicationRecord
   # validates :image, presence: true
   validates :about, presence: true, length: { in: 2..350 }
   validates :mini_description, presence: true, length: { in: 10..30 }
-  validates :cash, presence: true
-  validates :card, presence: true
+  # validates :cash, presence: true
+  # validates :card, presence: true
 end
