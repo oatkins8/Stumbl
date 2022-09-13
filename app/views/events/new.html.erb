@@ -1,20 +1,25 @@
-<H1 style="text-align:center;">Add your event to Stumbl</H1>
-<div class="container" style="padding-bottom: 75px;">
-<%= simple_form_for [@venue, @event]  do |f| %>
-  <%= f.input :name, label: 'What is your event name?' %>
-  <%= f.input :about, label: 'What will your event be about?'%>
-  <%= f.input :category, label: 'What type of event is this?'%>
-  <%= f.input :genre, label: 'Add your event genre, if applicable'%>
-  <%= f.input :producer, label: 'Who is producing your event?' %>
-  <%= f.input :price%>
-  <%= f.input :time%>
-  <%= f.input :date%>
-  <%= f.input :mini_description%>
-  <%= f.input :min_age%>
-  <%= f.input :tickets_available, label: 'How many tickets are available?'%>
-  <%= f.input :cash, label: 'Do you accept 💷 ?'%>
-  <%= f.input :card, label: 'Do you accept 💳 ?'%>
-  <%= f.input :images, as: :file, input_html: { multiple: true } %>
-  <p class="button-general"> <%= f.button :submit %> </p>
-<% end %>
+<div class="container">
+  <div class="create-event-form">
+    <h1>Add your event</h1>
+  </div>
+  <div>
+    <div>
+      <%= simple_form_for [@venue, @event]  do |f| %>
+      <%= f.input :name, label: false, placeholder: 'What is the name of your event?' %>
+      <%= f.input :about, label: false, placeholder: 'What will your event be about?'%>
+      <%= f.input :category, label: false, prompt: 'What type of event is this?', :collection => %w[Sport Music Art Cinema N/A] %>
+      <%= f.input :category, label: false, prompt: 'Add a genre to your music event', :collection => %w[Electronic DJ Indie Rock Techno N/A] %>
+      <%= f.input :producer, label: false, placeholder: 'Who is producing your event?' %>
+      <%= f.input :price%>
+      <%= f.input :time%>
+      <%= f.input :date%>
+      <%= f.input :mini_description, label: false, placeholder: 'Add an event tagline'%>
+      <%= f.input :tickets_available, label: false, prompt: 'How many tickets are available?', collection: 1..100   %>
+      <%= f.input :cash, label: 'Tick for cash 💵'%>
+      <%= f.input :card, label: 'Tick for card 💳'%>
+      <%= f.input :images, label: 'Add images of your event', as: :file, input_html: { multiple: true } %>
+      <p class="button-general"> <%= f.button :submit %> </p>
+      <% end %>
+    </div>
+  </div>
 </div>
