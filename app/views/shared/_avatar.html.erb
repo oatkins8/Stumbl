@@ -3,7 +3,7 @@
         <%= image_tag "rob_baby.jpg", class: "top-avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <%= link_to "Your profile", "/users/:id", class: "dropdown-item", style: "color: black" %>
-          <%= link_to "Log out", "/users/sign_out", class: "dropdown-item", data: {turbo_method: :delete}, style: "color: black"  %>
+          <%= button_to "Sign out", destroy_user_session_path, class: "dropdown-item", method: :delete, data: { turbo: false }, style: "color: black" %>
         </div>
     <% else %>
       <div class="nav-item-login">
