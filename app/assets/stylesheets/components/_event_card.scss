@@ -41,7 +41,9 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 12px;
+  margin-bottom: 60px;
+  margin-top: 10px;
 }
 
 // .card-container {
