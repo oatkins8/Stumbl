@@ -93,6 +93,7 @@ gem "pundit"
 
 gem "cloudinary"
 
+gem 'faker'
 
 gem 'money-rails'
 
@@ -100,3 +101,6 @@ gem 'stripe'
 
 gem 'acts_as_favoritor'
 
+gem 'rest-client'
+
+gem 'faraday'

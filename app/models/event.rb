@@ -5,20 +5,23 @@ class Event < ApplicationRecord
   scope :price, ->(price) { where(price: price) }
 
   def price_range
+    price = price_cents / 100
+    p price
     case price
     when nil
       "Error"
     when 0
       "Free"
-    when 0.01..9.99
+    when 1..9.99
       "Under £10"
-    when 10..19.99
+    when 10.00..19.99
       "Under £20"
     else
       "Over £20"
     end
   end
-  
+
+
   acts_as_favoritable
   has_many :bookings, dependent: :destroy
   belongs_to :venue
@@ -34,13 +37,13 @@ class Event < ApplicationRecord
                     tsearch: { prefix: true }
                   }
 
-  validates :name, presence: true, length: { in: 2..100 }
-  validates :date, presence: true
-  validates :time, presence: true
-  validates :category, presence: true
-  # validates :image, presence: true
-  validates :about, presence: true, length: { in: 2..350 }
-  validates :mini_description, presence: true, length: { in: 10..30 }
+  # validates :name, presence: true, length: { in: 2..100 }
+  # validates :date, presence: true
+  # validates :time, presence: true
+  # validates :category, presence: true
+  # # validates :image, presence: true
+  # # validates :about, presence: true, length: { in: 2..350 }
+  # validates :mini_description, presence: true, length: { in: 10..30 }
   # validates :cash, presence: true
   # validates :card, presence: true
 end

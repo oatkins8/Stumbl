@@ -1,34 +1,50 @@
 <div class="main-map">
   <div class="fluid-container map-box">
       <%# search search %>
-    <%= form_with url: events_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find Event!"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+      <%= form_with url: events_path, method: :get do |event| %>
+        <%= event.select :category, [["Any"],["Sport"], ["Music"], ["Art"], ["Cinema"] ],
+          value: params[:category],
+          class: "form-control" %>
+        <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"]],
+          value: params[:genre],
+          class: "form-control" %>
+        <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+          value: params[:price],
+          class: "form-control" %>
+        <%= submit_tag "submit", class: "btn btn-primary" %>
+      <% end %>
+
     <%# <%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
     <div style="width: 100%; height: 563px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
+    <%# <div id="map"></div>
+
+    <div id="geocoder" class="geocoder"></div>
+
+    <script>
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      });
+
+      document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    </script> %>
   </div>
 </div>
 
 
-<%= render "shared/cards_carousel" %>
-<%= form_with url: events_path, method: :get do |event| %>
-  <%= event.select :category, [["Any"],["sport"], ["music"], ["art"], ["cinema"] ],
-  value: params[:category],
-  class: "form-control" %>
-  <%= event.select :genre, [["Any"],["electronic"], ["DJ"], ["indie"], ["rock"], ["techno"]],
-  value: params[:genre],
-  class: "form-control" %>
-  <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
-  value: params[:price],
-  class: "form-control" %>
-  <%= submit_tag "submit", class: "btn btn-primary" %>
-<% end %>
+
+
+
+<%# form_with url: events_path, method: :get, class: "d-flex" do %>
+      <%# text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find Event!"
+      %>
+      <%# submit_tag "Search", class: "btn btn-primary" %>
+    <%# end %>
