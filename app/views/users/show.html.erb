@@ -22,7 +22,7 @@
               <h3 class="event_title"><%= booking.event.name %></h3>
               <p style="text-align:center"><strong>@ <%= booking.event.venue.name %> </strong> </p>
               <p style="text-align:left"><strong>Address  &#128205; :</strong> <%= booking.event.venue.location %></p>
-              <p style="text-align:left"><strong>Date &#128198; : </strong> <%= booking.event.date.to_formatted_s(:long) %></p>
+              <p style="text-align:left"><strong>Date: <%= booking.event.time.strftime("%A, %b %d") %></p>
               <p style="text-align:left"><strong>Time  &#8986;: </strong> <%= booking.event.time.to_formatted_s(:time) %></p>
               <p style="text-align:left"><strong>Ticket Quantity &#127915; : </strong> <%= booking.quantity %></p>
               <% total = booking.event.price * booking.quantity %>
