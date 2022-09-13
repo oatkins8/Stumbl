@@ -124,20 +124,71 @@ def event_two
 end
 event_two
 
+def event_three
+  venue = Venue.new(
+    name: "Brewhouse & Kitchen - Hoxton",
+    location: "397-400 Geffrye Street, London E2 8HZ England",
+    website: "https://www.brewhouseandkitchen.com/venue/hoxton/",
+    instagram: "https://www.instagram.com/brewhouse_and_kitchen",
+    facebook: "https://www.facebook.com/bkhoxton",
+    about: "Bar, British, Brew Pub, Pub",
+    user: USER_ONE
+  )
+  v_file = URI.open("https://www.brewhouseandkitchen.com/wp-content/uploads/2018/06/BK-Hoxton-JustinDeSouza-143-1024x683.jpg")
+  l_file = URI.open("https://www.brewhouseandkitchen.com/wp-content/themes/wppt/assets/img/logo.png")
+  venue.photos.attach(io: v_file, filename: "venue_image.jpg", content_type: "image/jpg")
+  venue.logo.attach(io: l_file, filename: "venue_logo.jpg", content_type: "image/png")
+  venue.save!
+  puts "created #{venue[:name]}!"
+  event = Event.new(
+    name: "BREWERY EXPERIENCE DAY",
+    mini_description: "Spend the day brewing a beer with one of our award-winning brewers!",
+    producer: "Brewhouse Brewers",
+    price: 95,
+    category: "Food & Drink",
+    venue: venue,
+    time: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+    about: "Our microbrewery sits right in the heart of our beautiful brewpub, you will be treated to breakfast, lunch and a lot of beers throughout the day."
+  )
+  e_file = URI.open("https://www.brewhouseandkitchen.com/wp-content/uploads/2020/02/Brewery-Day1-1024x683.jpg")
+  event.images.attach(io: e_file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  event.save!
+  puts "created #{event[:name]}!"
+end
+event_three
 
-# v_three = Venue.new(
-#   name: "Busaba Hoxton Square",
-#   location: "319 Old Street Hoxton, London EC1V 9LE England",
-#   website: "http://www.busaba.com/locations/busaba-hoxton-square",
-#   facebook: "https://www.instagram.com/busabaeathai/",
-#   instagram: "https://www.instagram.com/hoxtongrill/",
-#   about: "Asian, Thai, Vegetarian, Friendly",
-#   user: user_one
-# )
-# file = URI.open("https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,q_auto,f_auto/restaurant/e0a63bc2-f99b-48cf-a152-d143be822ed0/4689a65e-872b-4d52-8410-ffdc47061589.jpg")
-# v_three.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
-# v_three.save!
-# puts "created #{v_three[:name]}!"
+def event_four
+  venue = Venue.new(
+    name: "Busaba Hoxton Square",
+    location: "319 Old Street Hoxton, London EC1V 9LE England",
+    website: "http://www.busaba.com/locations/busaba-hoxton-square",
+    facebook: "https://www.instagram.com/busabaeathai/",
+    instagram: "https://www.instagram.com/hoxtongrill/",
+    about: "Asian, Thai, Vegetarian, Friendly",
+    user: USER_ONE
+  )
+  v_file = URI.open("https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,q_auto,f_auto/restaurant/e0a63bc2-f99b-48cf-a152-d143be822ed0/4689a65e-872b-4d52-8410-ffdc47061589.jpg")
+  l_file = URI.open("https://www.busaba.com/wp-content/themes/busaba-reskin-2019/assets/images/logo.svg")
+  venue.photos.attach(io: v_file, filename: "venue_image.jpg", content_type: "image/jpg")
+  venue.logo.attach(io: l_file, filename: "venue_logo.jpg", content_type: "image/svg")
+  venue.save!
+  puts "created #{venue[:name]}!"
+  event = Event.new(
+    name: "Climb & Dine at Busaba",
+    mini_description: "A delicious Two-course meal at Busaba after climbing the 02",
+    producer: "02 x Busaba",
+    price: 95,
+    category: "Food & Drink",
+    venue: venue,
+    time: Date.today,
+    about: "Up at The O2 takes you on an exhilarating 90-minute climb over the roof of the world’s most popular entertainment venue, then join us for a delicious two-course meal at Busaba."
+  )
+  e_file = URI.open("https://cdn.getyourguide.com/img/tour/5dce8e9d8d4e4.jpeg/98.jpg")
+  event.images.attach(io: e_file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  event.save!
+  puts "created #{event[:name]}!"
+end
+event_four
 
 
 # v_four = Venue.new(
@@ -168,19 +219,6 @@ event_two
 # v_five.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
 # v_five.save!
 # puts "created #{v_five[:name]}!"
-
-
-# v_six = Venue.new(
-#   name: "Brewhouse & Kitchen - Hoxton",
-#   location: "397-400 Geffrye Street, London E2 8HZ England",
-#   website: "https://www.brewhouseandkitchen.com/venue/hoxton/",
-#   about: "Brew Pub, Bar, Cafe, British, Pub",
-#   user: user_one
-# )
-# file = URI.open("https://www.brewhouseandkitchen.com/wp-content/uploads/2018/06/BK-Hoxton-JustinDeSouza-143-1024x683.jpg")
-# v_six.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
-# v_six.save!
-# puts "created #{v_six[:name]}!"
 
 
 # v_seven = Venue.new(
