@@ -28,14 +28,6 @@ class EventsController < ApplicationController
 
 
 
-
-
-
-
-
-
-
-
     # if params[:category] == 'Any'
     #   @events = @events.select(&:category)
     # elsif params[:category].present?
@@ -140,9 +132,22 @@ class EventsController < ApplicationController
   end
 
   def toggle_favorite
-    # @event = Event.find_by(id: params[:id])
     @event = Event.find(params[:id])
+    authorize @event
     current_user.favorited?(@event) ? current_user.unfavorite(@event) : current_user.favorite(@event)
+
+    respond_to do |format|
+      format.json
+    end
+    # respond_to do |format|
+    #   if @review.save
+    #     format.html { redirect_to restaurant_path(@restaurant) }
+    #     format.json
+    #   else
+    #     format.html { render "event/card", status: :unprocessable_entity }
+    #     format.json
+    #   end
+    # end
   end
 
   private

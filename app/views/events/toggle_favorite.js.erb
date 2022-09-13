@@ -1,6 +1,0 @@
-var eventId = '<%= @event.id%>'
-function toggleLikeButton(eventId, innerHTML) {
-  let likeButton = document.querySelector(`.favorite[data-id='${eventId}']`)
-  likeButton.classList.toggle('red');
-}
-toggleLikeButton(eventId);
