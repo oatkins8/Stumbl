@@ -60,3 +60,28 @@ a:link {
   font-weight: 550;
   letter-spacing: 1px;
 }
+
+.sign-in {
+  height: 100vh;
+}
+
+.login-form {
+  margin-top: 60px;
+}
+
+.login-form h1 {
+  text-align: center;
+  padding: 8px;
+  margin-top: 20px;
+  font-family: "Lato";
+  color: #09485d;
+}
+
+.devise-login {
+  text-align: center;
+  display: block;
+  margin-top: 81px;
+  padding: 70px;
+  font-family: "Lato";
+  color: #09485d;
+}
