@@ -2,10 +2,10 @@
   <div class="fluid-container map-box">
       <%# search search %>
       <%= form_with url: events_path, method: :get do |event| %>
-        <%= event.select :category, [["Any"],["sport"], ["music"], ["art"], ["cinema"] ],
+        <%= event.select :category, [["Any"],["Sport"], ["Music"], ["Art"], ["Cinema"] ],
           value: params[:category],
           class: "form-control" %>
-        <%= event.select :genre, [["Any"],["electronic"], ["DJ"], ["indie"], ["rock"], ["techno"]],
+        <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"]],
           value: params[:genre],
           class: "form-control" %>
         <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
