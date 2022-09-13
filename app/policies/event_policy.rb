@@ -27,4 +27,8 @@ class EventPolicy < ApplicationPolicy
   def destroy?
     record.user == current_user
   end
+
+  def toggle_favorite?
+    true
+  end
 end

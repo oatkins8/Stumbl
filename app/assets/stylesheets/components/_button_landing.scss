@@ -1,11 +1,11 @@
-.button-general {
+.button-landing {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #51adbf;
-  border: 2px solid #084C61;
-  box-shadow: 4px 4px 0 0 #084C61;
-  color: #2A324B;
+  background-color: #13e2ca;
+  box-shadow: 2px 2px 0 0 #084c61;
+  box-shadow: 2px 2px 0 0 #084C61;
+  color: #2A324B !important;
   font-weight: 600;
   font-size: 14px;
   padding-top:6px;
@@ -16,15 +16,15 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
-  border-radius: 3px;
-  width: 150px;
+  border-radius: 35px;
+  width: 225px;
   height: 57px;
   input {
     font-size: 14px;
   }
 }
 
-.button-general:hover {
+.button-landing:hover {
   background-color: #acf0ff;
 }
 
@@ -36,4 +36,5 @@ a:link {
   text-decoration: none;
   margin-top: auto;
   margin-bottom: auto;
+  font-size: 20px !important;
 }

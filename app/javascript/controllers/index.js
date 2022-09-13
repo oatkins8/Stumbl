@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ToggleFavoriteEventController from "./toggle_favorite_event_controller"
+application.register("toggle-favorite-event", ToggleFavoriteEventController)

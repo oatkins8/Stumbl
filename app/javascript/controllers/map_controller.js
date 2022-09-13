@@ -22,6 +22,14 @@ export default class extends Controller {
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))
 
+    this.map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: {
+        enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showUserHeading: true
+        }));
+
   }
 
   #addMarkersToMap() {
@@ -49,13 +57,4 @@ export default class extends Controller {
     })
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-  // // Add the control to the map.
-  // const geocoder = new MapboxGeocoder({
-  // accessToken: mapboxgl.accessToken,
-  // mapboxgl: mapboxgl
-  // });
-
-  // document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-
 }

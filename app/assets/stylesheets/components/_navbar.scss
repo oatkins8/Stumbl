@@ -4,7 +4,7 @@
   bottom: 0;
   width: 100vw;
   height: 10vh;
-  z-index: 10;
+  z-index: 10000;
 }
 
 .container-fluid {
@@ -39,4 +39,11 @@
 
 #offCanvasHeart {
   height: 90vh;
+}
+
+.offcanvas-title {
+  margin-left: 13px;
+  font-family: "Lato";
+  color: #084053;
+  font-weight: bold;
 }
