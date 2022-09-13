@@ -70,7 +70,9 @@ def event_one
     user: USER_ONE
   )
   v_file = URI.open("https://thehoxton.com/wp-content/uploads/sites/5/2020/06/HOXTON_GRILL_SHOREDITCH_061117_5044.jpg")
+  l_file = URI.open("https://thehoxton.com/wp-content/uploads/sites/5/2020/06/HOXTON_GRILL_SHOREDITCH_061117_5044.jpg")
   venue.photos.attach(io: v_file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  venue.logo.attach(io: l_file, filename: "venue_image_.jpg", content_type: "image/jpg")
   venue.save!
   puts "created #{venue[:name]}!"
   event = Event.new(
@@ -100,7 +102,9 @@ def event_two
     user: USER_ONE
   )
   v_file = URI.open("https://images.squarespace-cdn.com/content/v1/5ae84b394611a0664801a2ab/1630486392785-12KFWZM8GX2WLRBMZRNM/Shoreditch+terrace_Cocotte+%281%29+2.jpg?format=1000w")
+  l_file = URI.open("https://images.squarespace-cdn.com/content/v1/5ae84b394611a0664801a2ab/1630486392785-12KFWZM8GX2WLRBMZRNM/Shoreditch+terrace_Cocotte+%281%29+2.jpg?format=1000w")
   venue.photos.attach(io: v_file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  venue.logo.attach(io: l_file, filename: "venue_image_.jpg", content_type: "image/jpg")
   venue.save!
   puts "created #{venue[:name]}!"
   event = Event.new(

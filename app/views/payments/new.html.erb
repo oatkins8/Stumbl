@@ -4,8 +4,8 @@
       <h1>Checkout summary</h1>
       <p>Event: <strong><%= @booking.event.name %></strong> </p>
       <p>@ <strong>£<%= @booking.event.price %></strong> per ticket </p>
-      <p>Totoal: <strong><%= humanized_money_with_symbol @booking.amount %></strong> </p>
-      <p>Date: <%= @booking.event.date.to_formatted_s(:long)  %> </p>
+      <p>Total: <strong><%= humanized_money_with_symbol @booking.amount %></strong> </p>
+      <p>Date: <%= @booking.event.time.strftime("%A, %b %d") %></p>
       <p>Time: <%= @booking.event.time.to_formatted_s(:time) %> </p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
