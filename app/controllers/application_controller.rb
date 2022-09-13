@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   def after_sign_in_path_for(current_user)
-    events_path(current_user)
+    events_path
   end
 
   private
