@@ -8,36 +8,42 @@
         <i class='fa-solid fa-grip'></i>
       </div>
 
-      <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasBottom" aria-labelledby="offCanvasBottomLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offCanvasBottomLabel">Near You</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body small">
-          <div class="cards">
-              <% @events.each do |event| %>
-                <%= render 'events/card', event: event %>
-              <% end %>
-          </div>
-        </div>
-      </div>
+
 
       <div class="favourite icon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasHeart" aria-controls="offCanvasHeart">
         <i class="navbar-heart fas fa-heart"></i>
       </div>
-        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasHeart" aria-labelledby="offCanvasHeartLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offCanvasHeartLabel">Stumbl For Later</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-          <div class="offcanvas-body small">
-          <div class="cards">
-            <% current_user.all_favorited.each do |event| %>
-              <%= render 'events/card', event: event %>
-            <% end %>
-          </div>
-        </div>
+
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasBottom" aria-labelledby="offCanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offCanvasBottomLabel">Near You 📍</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small pt-0">
+      <div class="cards">
+          <% @events.each do |event| %>
+            <%= render 'events/card', event: event %>
+          <% end %>
       </div>
     </div>
   </div>
+
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offCanvasHeart" aria-labelledby="offCanvasHeartLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offCanvasHeartLabel">Stumbl For Later ❤️ </h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small pt-0">
+      <div class="cards">
+        <% current_user.all_favorited.each do |event| %>
+          <%= render 'events/card', event: event %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
 <% end %>
