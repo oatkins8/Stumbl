@@ -7,17 +7,13 @@
       </div>
       <h2 class="card-event-pricing" style = "color: black">💷 £<%= event.price %></h2>
     <% end %>
-
-      <div class="like-icon mx-2" data-id="<%= event.id %>">
+      <div data-controller="toggle-favorite-event" class="like-icon mx-2" data-id="<%= event.id %>">
         <% favorited = current_user.favorited?(event) %>
-        <%= link_to toggle_favorite_event_path(event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
-          <% if favorited %>
-            <i class="favorite fas fa-heart"></i>
-          <% else %>
-            <i class="fa-regular fa-heart"></i>
-          <% end %>
+        <%= link_to toggle_favorite_event_path(event), remote: true, data: { turbo_method: :post, action: "click->toggle-favorite-event#toggle"}, class: "#{'red' if favorited}" do %>
+          <div data-toggle-favorite-event-target="link">
+            <%= render 'events/heart', favorited: favorited %>
+          </div>
         <% end %>
       </div>
-
   </div>
 </div>
