@@ -46,3 +46,21 @@ body {
   text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
   margin: 2px;
 }
+
+.dropdown-menu {
+border-radius: 6px;
+border: solid 0.5px;
+padding: 2px;
+
+}
+
+a:link {
+  text-align: right;
+  font-size: 17px !important;
+  font-weight: 550;
+  letter-spacing: 1px;
+}
+
+a:link:hover {
+  background-color: yellow;
+}
