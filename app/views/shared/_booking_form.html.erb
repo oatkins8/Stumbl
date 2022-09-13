@@ -2,6 +2,6 @@
 <div class="container">
 <%= simple_form_for [@event, @booking]  do |f| %>
   <%= f.input :quantity, label: 'How many tickets would you like?' %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "button-general" %>
 <% end %>
 </div>

@@ -1,17 +1,27 @@
+<%= link_to venue_path(venue) do %>
 <div class="banner" style="background-image: url(https://picsum.photos/200/300/);">
   <div class="container">
-    <%= link_to venue.name, venue_path(venue) %>
+    <h2><%= venue.name.titleize %></h2>
     <p text-center><%= venue.location %></p>
   </div>
 </div>
+<% end %>
 <br>
+<p style="font-size: 20px"> Current Events </p>
+<div class="scroll-container">
 <div class="container">
-  <div class="row">
-    <div class="col-12">
+  <div>
+    <div>
       <% venue.events.each do |event| %>
-        <div class="card-category"> <%# need to add background image via cloudinary? %>
-        <%= link_to event.name, event_path(event) %>
+      <%= link_to event_path(event) do %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+             <h2><%= event.name.titleize %></h2>
+             <p><%= event.date.to_formatted_s(:long) %></p>
+          </div>
         </div>
+        <% end %>
       <% end %>
-  </div>
-</div>
+    </div>
+  </div></div>
