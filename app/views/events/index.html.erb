@@ -1,21 +1,21 @@
 <div class="main-map">
   <div class="fluid-container map-box">
-      <%# search search %>
-      <%= form_with url: events_path, method: :get do |event| %>
-        <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
-          value: params[:category],
-          class: "form-control" %>
-        <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
-          value: params[:genre],
-          class: "form-control" %>
-        <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
-          value: params[:price],
-          class: "form-control" %>
-        <%= event.text_field :location %>
-        <%= submit_tag "submit", class: "btn btn-primary" %>
-      <% end %>
-
-    <%# <%= link_to "Add New Venue", new_venue_path, class: "btn btn-warning" %>
+    <%# search search %>
+    <%= form_with url: events_path, method: :get do |event| %>
+      <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
+        value: params[:category],
+        class: "form-control" %>
+      <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
+        value: params[:genre],
+        class: "form-control" %>
+      <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+        value: params[:price],
+        class: "form-control" %>
+      <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"]%>">
+        <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
+      </div>
+      <%= submit_tag "submit", class: "btn btn-primary" %>
+    <% end %>
     <div style="width: 100%; height: 480px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
@@ -23,3 +23,6 @@
     </div>
   </div>
 </div>
+
+
+<%# <div id="geocoder" class="geocoder"></div> %>
