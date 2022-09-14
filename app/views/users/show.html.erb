@@ -23,12 +23,12 @@
               <h2 class="event_title"><%= booking.event.name %></h2>
             </div>
             <div class="ticket_info">
-              <p><%= booking.event.venue.location %></p>
-              <p><%= booking.event.time.strftime("%A, %b %d") %></p>
-              <p><%= booking.event.time.to_formatted_s(:time) %></p>
-              <p><%= booking.quantity %></p>
+              <p><i class="fa-solid fa-location-dot"> </i> <%= booking.event.venue.location %></p>
+              <p><i class="fa-solid fa-calendar-days"> </i> <%= booking.event.time.strftime("%A, %b %d") %></p>
+              <p><i class="fa-solid fa-clock"> </i> <%= booking.event.time.to_formatted_s(:time) %></p>
+              <p><i class="fa-solid fa-ticket"></i> <%= booking.quantity %></p>
               <% total = booking.event.price * booking.quantity %>
-              <p>Total Price  &#128181; : £ <%= total %> </p>
+              <p><i class="fa-solid fa-sterling-sign"></i> <%= total %> </p>
             </div>
           </div>
         <% end %>
