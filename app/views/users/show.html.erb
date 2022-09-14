@@ -6,10 +6,12 @@
     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Venues</button>
   </li>
 </ul>
-<h2 class="welcome_top">  Welcome <strong><%= current_user.first_name %> <%= current_user.last_name%></strong> here are </h2>
+<h2 class="welcome_top">  Welcome <strong><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>!
+<br>
+</strong>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
-    <h2 class="welcome_bottom">Your <strong> Stumbl </strong> Events</h2>
+    <h2 class="welcome_bottom">Here are your <strong> Stumbl </strong>events</h2>
     <div>
       <% current_user.bookings.each do |booking| %>
         <div class="profile_card">
