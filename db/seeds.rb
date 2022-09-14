@@ -34,11 +34,7 @@ event_listings.each do |event_listing|
     facebook: "facebook icon url goes here",
     instagram: "instagram icon url goes here",
     about: "venue description / overview goes here",
-<<<<<<< HEAD
-    user: user_one
-=======
     user: USER_ONE
->>>>>>> 72bca5504b989ba435c2a35168dc6dd4d065106d
   )
   venue_one.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
   venue_one.logo.attach(io: file_two, filename: "venue_image_.jpg", content_type: "image/jpg")
