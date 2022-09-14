@@ -6,12 +6,12 @@
     <h2>Stumbl</h2>
     <p class="tag"><strong>Local events for you</strong></p>
   </div>
+
   <div class="buttonshome">
     <div class="stumbl_sml">
-      <%= link_to "Find an event", events_path, class: "button-landing" %>
-    </div>
+      <%= link_to "Start Stumbl", user_session_path, class: "button-landing" %>
     <div class="sign-in">
-      <%= link_to "Sign in", user_session_path, class: "button-landing" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "button-not-user"%>
     </div>
   </div>
 </div>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @events = Event.all
     @bookings = Booking.where(user_id: params[:id])

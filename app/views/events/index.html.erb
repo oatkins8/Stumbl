@@ -1,7 +1,6 @@
 <div class="main-map">
   <div class="fluid-container map-box">
     <%# search search %>
-
     <%= form_with url: events_path, method: :get do |event| %>
       <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
         value: params[:category],
@@ -17,7 +16,7 @@
       </div>
       <%= submit_tag "submit", class: "btn btn-primary" %>
     <% end %>
-    <div style="width: 100%; height: 563px;"
+    <div style="width: 100%; height: 480px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
