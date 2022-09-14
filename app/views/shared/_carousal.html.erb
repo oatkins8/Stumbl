@@ -10,7 +10,7 @@
 
     <% images.each do |image| %>
       <div class="carousel-item <%= 'active' if image == images[0] %>">
-        <%= cl_image_tag image.key, class: "d-block w-100" %>
+        <%= cl_image_tag image.key, class:"d-block w-100"%>
       </div>
     <% end %>
     <%# <div class="carousel-item">
