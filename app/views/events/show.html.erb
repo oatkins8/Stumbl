@@ -43,7 +43,7 @@
      <p> <%= @event.about %></p>
 
     <% if user_signed_in? %>
-    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
+    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book</button>
     <% else %>
     <%= link_to "Book Here",  new_user_session_path, class: "button-general" %>
     <% end %>
