@@ -6,29 +6,29 @@
     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Venues</button>
   </li>
 </ul>
-<h2 class="welcome_top">  Welcome <strong><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>!
-<br>
-</strong>
+<div class="sign-up-form">
+  <h1>Welcome, <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>!</h1>
+</div>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active " id="home" role="tabpanel" aria-labelledby="home-tab">
-    <h2 class="welcome_bottom">Here are your <strong> Stumbl </strong>events</h2>
-    <div>
+    <h2 class="welcome_bottom">Your tickets</h2>
+  <div>
       <% current_user.bookings.each do |booking| %>
         <div class="profile_card">
           <%= link_to event_path(booking.event) do %>
-            <h3 class="ticket_title"> Event Ticket </h3>
             <div class="qr_box">
               <%= image_tag("qr_code.png", height: '200', width: '200', class: "ticket_code")%>
             </div>
+            <div>
+              <h2 class="event_title"><%= booking.event.name %></h2>
+            </div>
             <div class="ticket_info">
-              <h3 class="event_title"><%= booking.event.name %></h3>
-              <p style="text-align:center"><strong>@ <%= booking.event.venue.name %> </strong> </p>
-              <p style="text-align:left"><strong>Address  &#128205; :</strong> <%= booking.event.venue.location %></p>
-              <p style="text-align:left"><strong>Date: <%= booking.event.time.strftime("%A, %b %d") %></p>
-              <p style="text-align:left"><strong>Time: </strong> <%= booking.event.time.to_formatted_s(:time) %></p>
-              <p style="text-align:left"><strong>Ticket Quantity &#127915; : </strong> <%= booking.quantity %></p>
+              <p><i class="fa-solid fa-location-dot"> </i> <%= booking.event.venue.location %></p>
+              <p><i class="fa-solid fa-calendar-days"> </i> <%= booking.event.time.strftime("%A, %b %d") %></p>
+              <p><i class="fa-solid fa-clock"> </i> <%= booking.event.time.to_formatted_s(:time) %></p>
+              <p><i class="fa-solid fa-ticket"></i> <%= booking.quantity %></p>
               <% total = booking.event.price * booking.quantity %>
-              <p style="text-align:left"><strong>Total Price  &#128181; : £ </strong><%= total %> </p>
+              <p><i class="fa-solid fa-sterling-sign"></i> <%= total %> </p>
             </div>
           </div>
         <% end %>

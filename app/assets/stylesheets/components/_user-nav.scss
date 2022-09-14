@@ -28,51 +28,56 @@
 
 
 .profile_card {
-
-   border: black solid 1px;
+   border: #058D9D solid 2px;
    border-radius: 10px;
-   background-color: $blue;
-   margin: 15px;
+   background: linear-gradient(45deg, #28B7A6, #f8f9fa);
+   margin: 22px;
    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-   padding: 10px;
+   padding: 16px;
    color: white;
-
 }
 
 .profile_card p {
-   font-size: 12px;
-   margin-bottom: 5px;
-   margin-left: 15px;
-
+  margin-bottom: 12px;
+  text-align: left;
+  padding: 6px;
+  font-family: "Lato";
+  color: #09485d;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .ticket_code {
    margin-bottom: 20px;
-   border: black solid 2px;
+   border: black solid 1px;
    background-color: white;
-
 }
 
+.ticket_info {
+  font-family: "Lato";
+  color: #09485d;
+}
+
+.ticket_info p {
+margin-bottom: -6px
+}
 
 .qr_box {
    display: flex;
    justify-content: center;
    align-items: center;
    border-bottom: white solid 1px;
-
-
 }
-
-.ticket_title {
-text-align: center;
-
-}
-
 
 .event_title {
-   margin-top: 15px;
-   text-align: center;
-   margin-bottom: 10px;
+  text-align: center;
+  text-align: center;
+  padding: 4px;
+  margin-top: 12px;
+  font-family: "Lato";
+  color: #09485d !important;
+  font-weight: bolder;
+  font-size: 24px;
 }
 
 
@@ -100,10 +105,16 @@ text-align: center;
  .welcome_top {
    text-align: center;
    margin-top: 15px;
+
  }
 
  .welcome_bottom {
-   text-align: center;
-   margin-bottom: 15px;
-
+  text-align: center;
+  margin-bottom: 12px;
+  text-align: center;
+  padding: 6px;
+  font-family: "Lato";
+  color: #09485d;
+  font-weight: bold;
+  padding-bottom: 10px;
  }
