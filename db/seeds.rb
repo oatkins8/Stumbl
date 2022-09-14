@@ -20,41 +20,41 @@ USER_ONE = User.create!(
 )
 puts "created #{USER_ONE[:first_name]} #{USER_ONE[:last_name]}!"
 
-# url = "https://www.songkick.com/metro-areas/24426-uk-london?page=1#metro-area-calendar"
-# unparsed_page = URI.open(url)
-# parsed_page = Nokogiri::HTML(unparsed_page)
-# event_listings = parsed_page.css('li.event-listings-element')
+url = "https://www.songkick.com/metro-areas/24426-uk-london?page=1#metro-area-calendar"
+unparsed_page = URI.open(url)
+parsed_page = Nokogiri::HTML(unparsed_page)
+event_listings = parsed_page.css('li.event-listings-element')
 
-# event_listings.each do |event_listing|
-#   file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
-#   venue_one = Venue.new(
-#     name: event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text,
-#     location: "#{event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text}, #{event_listing.css('div.artists-venue-location-wrapper').css('span.city-name').text}",
-#     website: "venue website url goes here",
-#     facebook: "facebook icon url goes here",
-#     instagram: "instagram icon url goes here",
-#     about: "venue description / overview goes here",
-#     user: user_one
-#   )
-#   venue_one.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
-#   venue_one.save!
-#   puts "created #{venue_one[:name]}!"
-#   event = Event.new(
-#     name: event_listing.css('div.artists-venue-location-wrapper').css('strong').text,
-#     mini_description: "mini description goes here",
-#     producer: "Support: #{event_listing.css('div.artists-venue-location-wrapper').css('span.support').text}",
-#     price: rand(5..50),
-#     about: "full description / overview goes here",
-#     category: %w(music cinema art sport).sample,
-#     venue: venue_one,
-#     date: "Mon, 12 Sep 2022",
-#     time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00"
-#   )
-#   file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
-#   event.images.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
-#   event.save!
-#   puts "created #{event[:name]}!"
-# end
+event_listings.each do |event_listing|
+  file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
+  venue_one = Venue.new(
+    name: event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text,
+    location: "#{event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text}, #{event_listing.css('div.artists-venue-location-wrapper').css('span.city-name').text}",
+    website: "venue website url goes here",
+    facebook: "facebook icon url goes here",
+    instagram: "instagram icon url goes here",
+    about: "venue description / overview goes here",
+    user: user_one
+  )
+  venue_one.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  venue_one.save!
+  puts "created #{venue_one[:name]}!"
+  event = Event.new(
+    name: event_listing.css('div.artists-venue-location-wrapper').css('strong').text,
+    mini_description: "mini description goes here",
+    producer: "Support: #{event_listing.css('div.artists-venue-location-wrapper').css('span.support').text}",
+    price: rand(5..50),
+    about: "full description / overview goes here",
+    category: %w(music cinema art sport).sample,
+    venue: venue_one,
+    date: "Mon, 12 Sep 2022",
+    time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00"
+  )
+  file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
+  event.images.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  event.save!
+  puts "created #{event[:name]}!"
+end
 
 # MANUAL SEED ---------------------------------------
 
