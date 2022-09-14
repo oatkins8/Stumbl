@@ -17,7 +17,9 @@
       <% venue.events.each do |event| %>
       <%= link_to event_path(event) do %>
         <div class="card-product window-card">
-          <%= cl_image_tag event.images[0].key, crop: :fill %>
+          <% if event.images.attached? %>
+            <%= cl_image_tag event.images[0].key, crop: :fill %>
+          <% end %>
           <div class="card-product-infos window-card-info">
              <h2><%= event.name.titleize %></h2>
              <p><%= event.time.to_formatted_s(:short) %></p>
