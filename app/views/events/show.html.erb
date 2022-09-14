@@ -42,7 +42,6 @@
      <p> 🗓 <%= @event.time.strftime("%A, %b %d") %></p>
      <p> <%= @event.about %></p>
 
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis molestias beatae nisi accusantium maiores nihil fuga error praesentium id soluta hic ullam corporis consectetur quia repellat, dolor, iste accusamus aliquam.</p>
     <% if user_signed_in? %>
     <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
     <% else %>
