@@ -41,7 +41,7 @@
     <% current_user.venues.each do |venue|  %>
       <%= link_to venue_path(venue) do %>
         <div class="card-product-user">
-          <%= image_tag("venue.png")%>
+          <%= cl_image_tag venue.photos[0].key, crop: :fill %>
           <div class="card-product-infos">
             <h2><strong>Venue Name: </strong><%= venue.name %></h2>
             <p><strong>Venue Location &#128205; :</strong><%= venue.location %>.</p>
