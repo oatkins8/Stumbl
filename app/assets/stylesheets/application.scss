@@ -16,6 +16,14 @@ body {
   background: linear-gradient(45deg, #76f2e4, #f8f9fa);
 }
 
+.no-nav-min-height {
+  min-height: 100vh;
+}
+
+.nav-min-height {
+  min-height: calc(100vh - 66.7px);
+}
+
 
 .carousel .item {
   height: 300px;
