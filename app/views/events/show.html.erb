@@ -1,57 +1,54 @@
-
 <%= render "shared/carousal", images: @event.images %>
-
-    <div class="container" style="padding-bottom: 65px; padding: 20px">
-      <div class="header-container">
-        <h2><%= @event.name.titleize %></h2>
-        <div class="d-flex">
-          <div class="like-icon mx-3 pt-3" data-id="<%= @event.id %>">
-            <% favorited = current_user.favorited?(@event) %>
-            <%= link_to toggle_favorite_event_path(@event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
-              <% if favorited %>
-                <i class="favorite fas fa-heart"></i>
-              <% else %>
-                <i class="fa-regular fa-heart"></i>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="heart-logo">
-            <p> Venue </p>
-            <%= link_to venue_path(@event.venue), class: "logo-size" do %>
-            <%= cl_image_tag @event.venue.logo.key %>
+<div class="container" style="padding-bottom: 65px; padding: 20px">
+  <div class="header-container">
+    <h2><%= @event.name.titleize %></h2>
+    <div class="d-flex">
+      <div class="like-icon mx-3 pt-3" data-id="<%= @event.id %>">
+        <% favorited = current_user.favorited?(@event) %>
+        <%= link_to toggle_favorite_event_path(@event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
+          <% if favorited %>
+            <i class="favorite fas fa-heart"></i>
+          <% else %>
+            <i class="fa-regular fa-heart"></i>
           <% end %>
-         </div>
-         </div>
-        </div>
-        <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
-     <p style="padding-top: 15px;"><%= humanized_money_with_symbol(@event.price)%> /ticket</p>
-     <div class="d-flex ">
-        <% if @event.cash == false %>
-        <p style="padding-right:5px"> Cash: ❌ </p>
-      <% else %>
-        <p style="padding-right:5px"> Cash: ✅ </p>
         <% end %>
-      <% if @event.card == false %>
-        <p> Card: ❌ </p>
-      <% else %>
-        <p> Card: ✅ </p>
+      </div>
+      <div class="heart-logo">
+        <p> Venue </p>
+        <%= link_to venue_path(@event.venue), class: "logo-size" do %>
+          <%= cl_image_tag @event.venue.logo.key %>
         <% end %>
-     </div>
-     <p> 🎟 <%= @event.tickets_available%> Available Tickets </p>
-     <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
-     <p> 🗓 <%= @event.time.strftime("%A, %b %d") %></p>
-     <p> <%= @event.about %></p>
-
-    <% if user_signed_in? %>
-    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
+      </div>
+    </div>
+  </div>
+  <i class="fa-solid fa-location-dot"></i> <%= @event.venue.location %>
+  <p style="padding-top: 15px;"><%= humanized_money_with_symbol(@event.price)%> /ticket</p>
+  <div class="d-flex ">
+    <% if @event.cash == false %>
+      <p style="padding-right:5px"> Cash: ❌ </p>
     <% else %>
-    <%= link_to "Book Here",  new_user_session_path, class: "button-general" %>
+      <p style="padding-right:5px"> Cash: ✅ </p>
     <% end %>
+    <% if @event.card == false %>
+      <p> Card: ❌ </p>
+    <% else %>
+      <p> Card: ✅ </p>
+    <% end %>
+  </div>
+  <p> 🎟 <%= @event.tickets_available%> Available Tickets </p>
+  <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
+    <% if @event.date == nil %>
+      <p> Please contact Venue for Event date...  </p>
+    <% else %>
+      <p> 🗓 <%= @event.date.to_formatted_s(:long) %></p>
+    <% end %>
+  <p> <%= @event.about %></p>
+  <% if user_signed_in? %>
+    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
+  <% else %>
+    <%= link_to "Book Here",  new_user_session_path, class: "button-general" %>
+  <% end %>
 </div>
-
-
-
-
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 id="offcanvasRightLabel"></h5>
