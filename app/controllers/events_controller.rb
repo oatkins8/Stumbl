@@ -95,15 +95,6 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.json
     end
-    # respond_to do |format|
-    #   if @review.save
-    #     format.html { redirect_to restaurant_path(@restaurant) }
-    #     format.json
-    #   else
-    #     format.html { render "event/card", status: :unprocessable_entity }
-    #     format.json
-    #   end
-    # end
   end
 
   private
