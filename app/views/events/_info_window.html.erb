@@ -1,27 +1,30 @@
-<%= link_to venue_path(venue) do %>
-<div class="banner" style="background-image: url(https://picsum.photos/200/300/)">
-  <div class="container">
-    <h2><%= venue.name.titleize %></h2>
-    <p text-center><%= venue.location %></p>
+<div class="banner-border">
+  <%= link_to venue_path(venue) do %>
+  <div class="banner" style="background-image: url('<%= cl_image_path venue.photos[0].key, crop: :fill %>');">
+    <div class="container">
+      <h2><%= venue.name.titleize %></h2>
+      <p text-center><%= venue.location %></p>
+    </div>
   </div>
+  <% end %>
 </div>
-<% end %>
 <br>
-<p style="font-size: 20px"> Current Events </p>
+<p style="font-size: 20px">Current Events:</p>
 <div class="scroll-container">
 <div class="container">
   <div>
     <div>
       <% venue.events.each do |event| %>
       <%= link_to event_path(event) do %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
+        <div class="card-product window-card">
+          <%= cl_image_tag event.images[0].key, crop: :fill %>
+          <div class="card-product-infos window-card-info">
              <h2><%= event.name.titleize %></h2>
-             <p><%= event.date.to_formatted_s(:long) %></p>
+             <p><%= event.time.to_formatted_s(:short) %></p>
           </div>
         </div>
         <% end %>
       <% end %>
     </div>
-  </div></div>
+  </div>
+</div>
