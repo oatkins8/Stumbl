@@ -17,8 +17,9 @@ class Venue < ApplicationRecord
   # end
 
   # validates :name, presence: true, length: { in: 2..100 }
-  # validates :location, presence: true
-  # # validates :photos, presence: true
-  # # validates :photo, presence: true
+  validates :name, presence: true
+  validates :location, presence: true
+  validates :photos, presence: true
+  validates :logo, presence: true
   # validates :about, presence: true, length: { in: 2..350 }
 end

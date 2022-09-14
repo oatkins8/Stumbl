@@ -26,6 +26,7 @@ event_listings = parsed_page.css('li.event-listings-element')
 
 event_listings.each do |event_listing|
   file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
+  file_two = URI.open("https://picsum.photos/200/300")
   venue_one = Venue.new(
     name: event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text,
     location: "#{event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text}, #{event_listing.css('div.artists-venue-location-wrapper').css('span.city-name').text}",
@@ -40,6 +41,7 @@ event_listings.each do |event_listing|
 >>>>>>> 72bca5504b989ba435c2a35168dc6dd4d065106d
   )
   venue_one.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  venue_one.logo.attach(io: file_two, filename: "venue_image_.jpg", content_type: "image/jpg")
   venue_one.save!
   puts "created #{venue_one[:name]}!"
   event = Event.new(
