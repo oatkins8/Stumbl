@@ -26,7 +26,7 @@ event_listings = parsed_page.css('li.event-listings-element')
 
 event_listings.each do |event_listing|
   file = URI.open("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}")
-  file_two = URI.open("https://picsum.photos/200/300")
+  file_two = URI.open(("https:#{event_listing.css('div.event-details-wrapper').css('img')[0].attributes['data-src'].value}"))
   venue_one = Venue.new(
     name: event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text,
     location: "#{event_listing.css('div.artists-venue-location-wrapper').css('a.venue-link').text}, #{event_listing.css('div.artists-venue-location-wrapper').css('span.city-name').text}",
