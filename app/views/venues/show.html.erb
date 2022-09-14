@@ -19,5 +19,24 @@
   </div>
   <i style="padding-bottom:20px;"class="fa-solid fa-location-dot"></i> <%= @venue.location %>
   <p> <%= @venue.about %></p>
-  <p><%= link_to "Add Event", new_venue_event_path(@venue), class: "button-general" %></p>
+  <h4 style="text-align:center;"><u> Hosted Events </u></h4>
+  <div >
+    <div class="scroll-container-two">
+      <div class="container">
+        <% @venue.events.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="card-product window-card">
+              <%= cl_image_tag event.images[0].key, crop: :fill %>
+              <div class="card-product-infos window-card-info">
+                <h2><%= event.name.titleize %></h2>
+                <p><%= event.time.to_formatted_s(:short) %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <p><%= link_to "Add Event", new_venue_event_path(@venue), class: "button-general" %></p>
+  </div>
+</div>
 </div>

@@ -70,8 +70,10 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+    @venue = @event.venue
     authorize @event
     @event.destroy
+    redirect_to venue_path(@venue)
   end
 
   def edit
