@@ -1,6 +1,5 @@
 <div class="container home-page">
   <div class="landing-image">
-    <%# <img src="/assets/stumbl_logo.jpg" alt="Logo" width="100%" %>
     <%= image_tag "stumbl_logo.jpg", width: "100%" %>
   </div>
   <div class="stumbl">
@@ -9,6 +8,7 @@
   </div>
   <div class="stumbl_sml">
     <%= link_to "Find an event", events_path, class: "button-landing" %>
+    <%= link_to "Sign in", user_session_path, class: "button-landing" %>
     <%# <%= link_to "<p>Find an event</p>".html_safe, events_path, class: "stumbl_sml_text" %>
   </div>
 </div>

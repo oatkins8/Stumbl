@@ -1,6 +1,8 @@
 <div class="top-icons">
   <div>
-    <%= image_tag "<a href='/'>'logo.png'</a>".html_safe, class: "top-avatar" %>
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png', class: "top-avatar" %>
+    <% end %>
   </div>
   <div>
     <h2> Stumbl </h2>
@@ -9,6 +11,3 @@
     <%= render "shared/avatar" %>
   </div>
 </div>
-
-
-<%# //Chang %>
