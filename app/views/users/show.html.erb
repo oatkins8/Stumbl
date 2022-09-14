@@ -42,9 +42,11 @@
       <%= link_to venue_path(venue) do %>
         <div class="card-product-user">
           <%= cl_image_tag venue.photos[0].key, crop: :fill %>
-          <div class="card-product-infos">
-            <h2><strong>Venue Name: </strong><%= venue.name %></h2>
-            <p><strong>Venue Location &#128205; :</strong><%= venue.location %>.</p>
+            <div class="card-product-user-flex">
+              <div class="card-product-infos">
+                <h2><strong></strong><%= venue.name %></h2>
+                <p><strong>&#128205; :</strong><%= venue.location %>.</p>
+              </div>
           </div>
         </div>
       <% end %>
