@@ -10,8 +10,7 @@
     text-align: center;
     letter-spacing: 0.5px;
     color: #28b7a2;
-    padding-top: 35px;
-    padding-bottom: 10px;
+    padding-top: 10px;
 
     h2 {
         font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
@@ -31,4 +30,10 @@
     font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
     font-size: 30px;
     text-shadow: 3px 3px 0px rgba(45, 45, 45, 0.1);
+}
+
+
+.sign-in {
+  height: 13vh !important;
+  margin-top: 11px !important;
 }
