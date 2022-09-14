@@ -12,6 +12,13 @@
   text-align: left;
 }
 
+.card-product-user-flex {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
 .card-product-user img {
   height: 85px;
   width: 85px;
@@ -21,7 +28,7 @@
 .card-product-user h2 {
   font-size: 12px !important;
   font-weight: bold;
-  margin: 0;
+  // margin: 0;
 }
 
 .card-product-user p {
