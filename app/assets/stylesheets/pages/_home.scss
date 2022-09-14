@@ -9,11 +9,12 @@
 .stumbl {
     text-align: center;
     letter-spacing: 0.5px;
-    color: #28b7a2;
+    color: #28B7A6;
     padding-top: 10px;
 
     h2 {
-        font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
+        -webkit-text-stroke: 2px #25a999;
+      font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
         font-size: 74px;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     }
@@ -22,11 +23,9 @@
 .stumbl_sml {
     text-align: center;
     padding-top: 5px;
-
 }
 
 .stumbl_sml_text p {
-
     font-family: "Bubblegum Sans", "Helvetica", "sans-serif";
     font-size: 30px;
     text-shadow: 3px 3px 0px rgba(45, 45, 45, 0.1);
