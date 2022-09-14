@@ -39,9 +39,9 @@ class Event < ApplicationRecord
 
   # validates :name, presence: true, length: { in: 2..100 }
   # validates :date, presence: true
-  # validates :time, presence: true
+  validates :time, presence: true
   # validates :category, presence: true
-  # # validates :image, presence: true
+  validates :images, presence: true
   # # validates :about, presence: true, length: { in: 2..350 }
   # validates :mini_description, presence: true, length: { in: 10..30 }
   # validates :cash, presence: true

@@ -36,6 +36,7 @@ event_listings.each do |event_listing|
     user: USER_ONE
   )
   venue_one.photos.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
+  venue_one.photo.attach(io: file, filename: "venue_image_.jpg", content_type: "image/jpg")
   venue_one.save!
   puts "created #{venue_one[:name]}!"
   event = Event.new(
