@@ -8,7 +8,7 @@
       <%= f.input :name, label: false, placeholder: 'What is the name of your event?' %>
       <%= f.input :about, label: false, placeholder: 'Describe your event'%>
       <%= f.input :category, label: false, prompt: 'What type of event is this?', :collection => %w[Sport Music Art Cinema N/A] %>
-      <%= f.input :category, label: false, prompt: 'Add a genre to your music event', :collection => %w[Electronic DJ Indie Rock Techno N/A] %>
+      <%= f.input :genre, label: false, prompt: 'Add a genre to your music event', :collection => %w[Electronic DJ Indie Rock Techno N/A] %>
       <%= f.input :producer, label: false, placeholder: 'Who is producing your event?' %>
       <%= f.input :price%>
       <%= f.input :time%>
@@ -23,6 +23,3 @@
     </div>
   </div>
 </div>
-
-
-<%# id="sweet-alert-demo" %>
