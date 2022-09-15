@@ -4,9 +4,16 @@
   background: linear-gradient(45deg, #30a396, #f8f9fa);
 }
 
-.offcanvas.offcanvas-end {
-  top: 150px;
+.offcanvas.offcanvas-end.show {
+  top: 55vh;
   bottom: 67px;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+
+.offcanvas.offcanvas-end.search {
+  top: 18vh;
+  bottom: 0;
   border-top-left-radius: 5px !important;
   border-top-right-radius: 5px !important;
 }
@@ -17,10 +24,4 @@
 
 #offCanvasHeart {
   height: 90vh;
-}
-
-.style{
-  top: 0;
-  bottom: 30vh;
-  border-radius: 0px 0px 20px 20px !important;
 }

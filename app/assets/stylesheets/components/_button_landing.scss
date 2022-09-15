@@ -81,7 +81,11 @@ a:link {
   width: 105px;
   background-color: #28B7A6;
   color: white !important;
+  position: absolute;
+  top: 64px;
+  z-index: 100;
   border: none;
+  left: calc(50% - 52.5px);
 }
 
 
