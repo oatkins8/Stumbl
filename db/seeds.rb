@@ -310,7 +310,7 @@ event_seven
 
 def event_eight
   venue = Venue.new(
-    name: "MEATliquor Shoreditch",
+    name: "MEAT liquor Shoreditch",
     location: "15 Hoxton Market, London N1 6HG England",
     website: "https://meatliquor.com/restaurant/meatliquor-shoreditch/",
     facebook: "https://www.facebook.com/MEATliquorShoreditch/",
