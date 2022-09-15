@@ -24,6 +24,10 @@
   }
 }
 
+.mapboxgl-marker {
+  border-radius: 50% !important;
+}
+
 .button-landing:hover {
   background-color: #acf0ff;
 }
@@ -63,6 +67,23 @@ a:link {
     font-size: 14px;
   }
 }
+
+.card-search {
+  border-radius: 20px;
+}
+
+.button-not-user.search-button {
+  margin: 0 auto;
+  margin-bottom: 14px;
+  box-shadow: 1px 1px 0 0 #28b7a6 !important;
+  padding: 2px !important;
+  height: 38px;
+  width: 105px;
+  background-color: #28B7A6;
+  color: white !important;
+  border: none;
+}
+
 
 .button-landing:hover {
   background-color: #acf0ff;

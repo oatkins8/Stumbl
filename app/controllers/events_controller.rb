@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
 
     if params[:location].present?
-      near = Venue.near(params[:location], 15, units: :km)
+      near = Venue.near(params[:location], params[:radius], units: :km)
       @venues = @venues.select { |venue| near.include?(venue) }
     end
 
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: {venue: venue}),
-        image_url: helpers.asset_url("logo.png")
+        image_url: helpers.asset_url("logooooo.png")
       }
     end
   end
@@ -100,6 +100,7 @@ class EventsController < ApplicationController
     current_user.favorited?(@event) ? current_user.unfavorite(@event) : current_user.favorite(@event)
 
     respond_to do |format|
+      format.html { redirect_to event_path(@event) }
       format.json
     end
   end

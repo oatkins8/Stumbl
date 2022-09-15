@@ -33,6 +33,8 @@ USER_THREE = User.create!(
   password: "stumbl",
   age: rand(15..60)
 )
+
+
 puts "created #{USER_ONE[:first_name]} #{USER_ONE[:last_name]}!"
 
 url = "https://www.songkick.com/metro-areas/24426-uk-london?page=1#metro-area-calendar"
@@ -326,7 +328,7 @@ event_seven
 
 def event_eight
   venue = Venue.new(
-    name: "MEATliquor Shoreditch",
+    name: "MEAT liquor Shoreditch",
     location: "15 Hoxton Market, London N1 6HG England",
     website: "https://meatliquor.com/restaurant/meatliquor-shoreditch/",
     facebook: "https://www.facebook.com/MEATliquorShoreditch/",

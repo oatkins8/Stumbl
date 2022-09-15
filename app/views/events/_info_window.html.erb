@@ -3,13 +3,12 @@
   <div class="banner" style="background-image: url('<%= cl_image_path venue.photos[0].key, crop: :fill %>');">
     <div class="container">
       <h2><%= venue.name.titleize %></h2>
-      <p text-center><%= venue.location %></p>
     </div>
   </div>
   <% end %>
 </div>
 <br>
-<p style="font-size: 20px">Current Events:</p>
+<p style="font-size: 20px; color: #084c61" >Events</p>
 <div class="scroll-container">
 <div class="container">
   <div>

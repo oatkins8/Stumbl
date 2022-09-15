@@ -1,21 +1,17 @@
 <div class="main-map">
   <div class="fluid-container map-box">
     <%# search search %>
-    <%= form_with url: events_path, method: :get do |event| %>
-      <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
-        value: params[:category],
-        class: "form-control" %>
-      <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
-        value: params[:genre],
-        class: "form-control" %>
-      <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
-        value: params[:price],
-        class: "form-control" %>
-      <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"]%>">
-        <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
+    <button class="button-not-user search-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Search</button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel"></h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <%= submit_tag "submit", class: "btn btn-primary" %>
-    <% end %>
+      <div class="offcanvas-body">
+        <%= render "shared/index_search" %>
+      </div>
+    </div>
+
     <div style="width: 100%; height: 480px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
@@ -23,6 +19,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
 <%# <div id="geocoder" class="geocoder"></div> %>
