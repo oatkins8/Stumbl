@@ -6,8 +6,9 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lato", sans-serif;
   background: linear-gradient(45deg, #76f2e4, #f8f9fa) !important;
+  font-weight: bolder;
 }
 
 .window-card {
@@ -17,5 +18,5 @@
 
 .banner-border {
   border: none !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
