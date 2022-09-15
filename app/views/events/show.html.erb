@@ -18,16 +18,6 @@
         <%= link_to venue_path(@event.venue), class: "logo-size" do %>
           <%= cl_image_tag @event.venue.logo.key %>
         <% end %>
-<<<<<<< HEAD
-     </div>
-     <p> 🎟 <%= @event.tickets_available%> Available Tickets </p>
-     <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
-     <p> 🗓 <%= @event.time.strftime("%A, %b %d") %></p>
-     <p> <%= @event.about %></p>
-
-    <% if user_signed_in? %>
-    <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book</button>
-=======
       </div>
     </div>
   </div>
@@ -36,7 +26,6 @@
   <div class="d-flex ">
     <% if @event.cash == false %>
       <p style="padding-right:5px"> Cash: ❌ </p>
->>>>>>> fd422c8c57ffdbd74c3804954564380ff645718e
     <% else %>
       <p style="padding-right:5px"> Cash: ✅ </p>
     <% end %>
