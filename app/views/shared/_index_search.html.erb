@@ -3,21 +3,21 @@
     <div class="card-body">
       <div class="mb-3">
         <%= event.label "What kind of event are you looking for?", { class: "form-label"} %> <br>
-        <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
-          value: params[:category],
-          class: "form-control"%>
+        <%= event.select(:category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
+          {value: params[:category]},
+          {class: "form-control input-style "}) %>
       </div>
       <div class="mb-3">
         <%= event.label "If you chose music, which genre?", { class: "form-label"} %> <br>
-        <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
-          value: params[:genre],
-          class: "form-control"%>
+        <%= event.select(:genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
+          {value: params[:genre]},
+          {class: "form-control input-style"})%>
       </div>
       <div class="mb-3">
         <%= event.label "Ticket price", { class: "form-label"} %> <br>
-        <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
-          value: params[:price],
-          class: "btn btn-secondary dropdown-toggle form-control" %>
+        <%= event.select( :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+          {value: params[:price]},
+          {class: "form-control input-style"}) %>
       </div>
       <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"]%>">
         <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
