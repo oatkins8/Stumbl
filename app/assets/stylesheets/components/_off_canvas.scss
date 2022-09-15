@@ -5,7 +5,7 @@
 }
 
 .offcanvas.offcanvas-end {
-  top: 377px;
+  top: 150px;
   bottom: 67px;
   border-top-left-radius: 5px !important;
   border-top-right-radius: 5px !important;
@@ -17,4 +17,10 @@
 
 #offCanvasHeart {
   height: 90vh;
+}
+
+.style{
+  top: 0;
+  bottom: 30vh;
+  border-radius: 0px 0px 20px 20px !important;
 }
