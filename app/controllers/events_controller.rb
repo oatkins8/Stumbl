@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
 
     if params[:location].present?
-      near = Venue.near(params[:location], 15, units: :km)
+      near = Venue.near(params[:location], params[:radius], units: :km)
       @venues = @venues.select { |venue| near.include?(venue) }
     end
 

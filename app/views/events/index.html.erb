@@ -4,13 +4,17 @@
     <%= form_with url: events_path, method: :get do |event| %>
       <%= event.select :category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
         value: params[:category],
-        class: "form-control" %>
+        class: "form-control",
+        prompt: "Choose event" %>
       <%= event.select :genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
         value: params[:genre],
-        class: "form-control" %>
+        class: "form-control",
+        prompt: "Music taste" %>
       <%= event.select :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
         value: params[:price],
+        prompt: "Choose price",
         class: "form-control" %>
+      <%= event.range_field :radius, in: 1..100 %>
       <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"]%>">
         <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
       </div>

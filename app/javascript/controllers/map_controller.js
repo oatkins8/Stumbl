@@ -24,7 +24,7 @@ export default class extends Controller {
 
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
+      mapboxgl: mapboxgl,
       });
 
     this.map.addControl(new mapboxgl.GeolocateControl({
