@@ -35,14 +35,21 @@
     padding: 16px;
     font-size: 6px;
     text-align: left;
- 
+    margin-bottom: 2px;
+
   }
 
   .card-product-infos h2 {
-    text-align: center;
-    margin-bottom: 15px;
+    text-align: left;
+    margin-bottom: 8px;
     font-size: 14px;
   }
+
+
+.card-product-infos h2 {
+  margin-bottom: 8px;
+}
+
 
   a:link {
     color: black;

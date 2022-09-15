@@ -11,9 +11,25 @@ puts "Creating users, venues and events ..."
 User.destroy_all
 
 USER_ONE = User.create!(
-  first_name: "rob",
-  last_name: "low",
-  email: "evententhusiast12345@mail.com",
+  first_name: "Main",
+  last_name: "Admin",
+  email: "main@mail.com",
+  password: "stumbl",
+  age: rand(15..60)
+)
+
+USER_TWO = User.create!(
+  first_name: "Ollie",
+  last_name: "Atkins",
+  email: "ollie@mail.com",
+  password: "stumbl",
+  age: rand(15..60)
+)
+
+USER_THREE = User.create!(
+  first_name: "Alex",
+  last_name: "DiCarlo",
+  email: "alex@mail.com",
   password: "stumbl",
   age: rand(15..60)
 )
