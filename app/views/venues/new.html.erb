@@ -12,9 +12,9 @@
     <%= f.input :website, label: false, placeholder: 'Website' %>
     <%= f.input :facebook, label: false, placeholder: 'Facebook' %>
     <%= f.input :instagram, label: false, placeholder: 'Instagram' %>
-    <%= f.input :logo, as: :file, lable: 'Add your venue logo!' %>
+    <%= f.input :logo, as: :file, label: 'Add your venue logo!' %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <p class="button-general"><%= f.button :submit %> </p>
+    <p class="button-general"><%= f.button :submit, value: "Submit" %> </p>
     <% end %>
   </div>
 </div>

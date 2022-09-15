@@ -88,6 +88,29 @@ a:link {
   left: calc(50% - 52.5px);
 }
 
+.custom-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: #51adbf;
+  border: 2px solid #084C61;
+  box-shadow: 4px 4px 0 0 #084C61;
+  color: #2A324B;
+  font-weight: 600;
+  font-size: 14px !important;
+  padding-top:6px;
+  padding-bottom: 6px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.5s;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 14px !important;
+  border-radius: 3px;
+  width: 80px;
+  height: 40px;
+}
 
 .button-landing:hover {
   background-color: #acf0ff;
