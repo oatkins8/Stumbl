@@ -46,7 +46,7 @@ event_listings.each do |event_listing|
     producer: "Support: #{event_listing.css('div.artists-venue-location-wrapper').css('span.support').text}",
     price: rand(5..50),
     about: "full description / overview goes here",
-    category: %w(music cinema art sport).sample,
+    category: %w(Music Cinema Art Sport).sample,
     venue: venue_one,
     date: "Mon, 12 Sep 2022",
     time: "Sat, 01 Jan 2000 14:06:00.000000000 UTC +00:00"

@@ -11,7 +11,6 @@ class EventsController < ApplicationController
         OR events.genre @@ :query
         OR events.producer @@ :query
         OR venues.name @@ :query
-        OR venues.location @@ :query
       SQL
       # @events is all the events joins with all the venues with the SQL query params applied
       @events = policy_scope(Event).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
@@ -20,8 +19,7 @@ class EventsController < ApplicationController
       @events = policy_scope(Event)
     end
 
-
-    params.delete_if { |key, _| params[key] == 'Any' }
+    params.delete_if { |key, _| params[key] == 'Any' || params[key].nil? }
     @events = Event.filter(params.slice(:category, :genre))
     @events = @events.select { |event| event.price_range == params[:price] } if params[:price].present?
 
@@ -29,6 +27,13 @@ class EventsController < ApplicationController
     @venues = @events.map do |event|
       event.venue if event.venue.geocoded?
     end
+
+
+    if params[:location].present?
+      near = Venue.near(params[:location], params[:radius], units: :km)
+      @venues = @venues.select { |venue| near.include?(venue) }
+    end
+
     # Creating a @markers array of hashes which iterates over each venue, if the venue has a nil,
     # value it removes nil(with .compact) the marker to its locations lat and lng.
     @markers = @venues.compact.map do |venue|
