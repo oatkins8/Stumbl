@@ -11,12 +11,29 @@ puts "Creating users, venues and events ..."
 User.destroy_all
 
 USER_ONE = User.create!(
-  first_name: "rob",
-  last_name: "low",
+  first_name: "Main",
+  last_name: "Admin",
   email: "evententhusiast12345@mail.com",
   password: "stumbl",
   age: rand(15..60)
 )
+
+USER_TWO = User.create!(
+  first_name: "Alex",
+  last_name: "DiCarlo",
+  email: "alex@mail.com",
+  password: "stumbl",
+  age: rand(15..60)
+)
+
+USER_THREE = User.create!(
+  first_name: "Rob",
+  last_name: "Low",
+  email: "rob@mail.com",
+  password: "stumbl",
+  age: rand(15..60)
+)
+
 puts "created #{USER_ONE[:first_name]} #{USER_ONE[:last_name]}!"
 
 url = "https://www.songkick.com/metro-areas/24426-uk-london?page=1#metro-area-calendar"
