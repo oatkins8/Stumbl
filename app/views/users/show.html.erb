@@ -37,7 +37,7 @@
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <h2 class="welcome_bottom">Your <strong> Stumbl </strong> Venues</h2>
-    <%= link_to "Add New Venue".html_safe, new_venue_path, class: "button-general" %>
+    <%= link_to "New Venue".html_safe, new_venue_path, class: "button-general" %>
     <% current_user.venues.each do |venue|  %>
       <%= link_to venue_path(venue) do %>
         <div class="card-product-user">
