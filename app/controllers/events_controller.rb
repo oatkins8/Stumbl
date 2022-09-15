@@ -100,6 +100,7 @@ class EventsController < ApplicationController
     current_user.favorited?(@event) ? current_user.unfavorite(@event) : current_user.favorite(@event)
 
     respond_to do |format|
+      format.html { redirect_to event_path(@event) }
       format.json
     end
   end

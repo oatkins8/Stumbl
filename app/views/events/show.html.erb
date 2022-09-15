@@ -5,7 +5,7 @@
     <div class="d-flex">
       <div class="like-icon mx-3 pt-3" data-id="<%= @event.id %>">
         <% favorited = current_user.favorited?(@event) %>
-        <%= link_to toggle_favorite_event_path(@event), remote: true, data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
+        <%= link_to toggle_favorite_event_path(@event), data: { turbo_method: :post }, class: "#{'red' if favorited}" do %>
           <% if favorited %>
             <i class="favorite fas fa-heart"></i>
           <% else %>
@@ -43,6 +43,8 @@
       <p> 🗓 <%= @event.date.to_formatted_s(:long) %></p>
     <% end %>
   <p> <%= @event.about %></p>
+
+
   <% if user_signed_in? %>
     <button class="button-general" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Book Here</button>
   <% else %>

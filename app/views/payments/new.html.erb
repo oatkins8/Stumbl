@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row py-4">
     <div class="login-form col">
-      <h1><strong>Your checkout details</strong></h1>
+      <h1><strong>Your Checkout Details</strong></h1>
       <p>You have booked:<p>
         <p><strong><%= @booking.event.name %></strong> </p>
       <p>Price: <strong>£<%= @booking.event.price %></strong> per ticket </p>
       <p>Total cost: <strong><%= humanized_money_with_symbol @booking.amount %></strong> </p>
-      <p>Date: <strong><%= @booking.event.time.strftime("%A, %b %d") %></p></strong>
+      <% if @booking.event.date == nil %>
+      <p> Please contact Venue for Event date...  </p>
+      <% else %>
+      <p>Date: <%= @booking.event.date.to_formatted_s(:long) %></p>
+      <% end %>
       <p>Time: <strong><%= @booking.event.time.to_formatted_s(:time) %></p></strong>
       <button id="pay" class="button-general">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
