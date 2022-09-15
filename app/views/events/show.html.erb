@@ -23,7 +23,7 @@
   </div>
   <div style="font-size: 18px; color: #0495D">
     <p>📍 <%= @event.venue.location %> </p>
-    <p> <p> 💸 <%=  humanized_money_with_symbol(@event.price)%> per ticket </p>
+    <p> 💸 <%=  humanized_money_with_symbol(@event.price)%> per ticket </p>
     <div class="d-flex ">
       <% if @event.cash == false %>
         <p style="padding-right:5px"> Cash ❌ </p>
