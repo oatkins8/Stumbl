@@ -40,7 +40,7 @@
     <p style="font-size: 18px; color: #0495D"> 🎟 <%= @event.tickets_available%> Available Tickets </p>
     <p> ⏰ <%= @event.time.to_formatted_s(:time) %></p>
       <% if @event.date == nil %>
-        <p> Please contact the venue for thedate...  </p>
+        <p> Please contact the venue for the date.  </p>
       <% else %>
         <p> 🗓 <%= @event.date.to_formatted_s(:long) %></p>
       <% end %>

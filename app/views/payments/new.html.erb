@@ -1,17 +1,15 @@
 <div class="container">
   <div class="row py-4">
-    <div class="login-form col">
-      <h1><strong>Your Checkout Details</strong></h1>
-      <p>You have booked:<p>
-        <p><strong><%= @booking.event.name %></strong> </p>
-      <p>Price: <strong>£<%= @booking.event.price %></strong> per ticket </p>
-      <p>Total cost: <strong><%= humanized_money_with_symbol @booking.amount %></strong> </p>
+    <div class="login-form col" style="color: #0495D">
+      <h1><strong>You are about to book:</strong></h1>
+        <h4><strong><%= @booking.event.name %></strong></h4>
+      <p><strong>£<%= @booking.event.price %></strong> per ticket </p>
       <% if @booking.event.date == nil %>
-      <p> Please contact Venue for Event date...  </p>
+      <p>Please contact the venue for the date.</p>
       <% else %>
-      <p>Date: <%= @booking.event.date.to_formatted_s(:long) %></p>
+      <p>On <strong><%=  @booking.event.date.to_formatted_s(:long) %></strong> at <strong><%= @booking.event.time.to_formatted_s(:time) %></strong></p>
       <% end %>
-      <p>Time: <strong><%= @booking.event.time.to_formatted_s(:time) %></p></strong>
+      <p><strong><%= humanized_money_with_symbol @booking.amount %></strong> in total </p>
       <button id="pay" class="button-general">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
