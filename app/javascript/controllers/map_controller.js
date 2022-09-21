@@ -22,7 +22,7 @@ export default class extends Controller {
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //   mapboxgl: mapboxgl }))
 
-    const geocoder = new MapboxGeocoder({
+    geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl,
       });
@@ -34,8 +34,6 @@ export default class extends Controller {
         trackUserLocation: true,
         showUserHeading: true
         }));
-
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(this.map));
 
   }
 

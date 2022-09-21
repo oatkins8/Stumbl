@@ -7,15 +7,6 @@ class Venue < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  # before_save :init
-
-  # def init
-  #   self.website  ||= ""
-  #   self.facebook ||= ""
-  #   self.instagram ||= ""
-  #   self.about ||= ""
-  # end
-
   # validates :name, presence: true, length: { in: 2..100 }
   validates :name, presence: true
   validates :location, presence: true
