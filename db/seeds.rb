@@ -99,7 +99,7 @@ def event_one
     price: 0,
     category: "Food & Drink",
     venue: venue,
-    time: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+    time: Faker::Time.forward(days: 5, period: :evening, format: :long),
     about: "Join us for a game of Mahjong once a month thanks to our pals at Lan Su Gardens. Plus, we've got cocktails on the cheap from Lovely Rita."
   )
   e_file = URI.open("https://thehoxton.com/wp-content/uploads/sites/5/2020/06/HOXTON_GRILL_SHOREDITCH_061117_5044.jpg")

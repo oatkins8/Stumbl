@@ -1,31 +1,45 @@
 <div class="banner-border">
   <%= link_to venue_path(venue) do %>
-  <div class="banner" style="background-image: url('<%= cl_image_path venue.photos[0].key, crop: :fill %>');">
-    <div class="container">
-      <h2><%= venue.name.titleize %></h2>
+    <div class="banner" style="background-image: url('<%= cl_image_path venue.photos[0].key, crop: :fill %>');">
+      <div class="container">
+        <h2><%= venue.name.titleize %></h2>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
 <br>
 <p style="font-size: 20px; color: #084c61" >Events</p>
 <div class="scroll-container">
-<div class="container">
-  <div>
+  <div class="container">
     <div>
-      <% venue.events.each do |event| %>
-      <%= link_to event_path(event) do %>
-        <div class="card-product window-card">
-          <% if event.images.attached? %>
-            <%= cl_image_tag event.images[0].key, crop: :fill %>
+      <div>
+        <% venue.events.each do |event| %>
+          <% if user_signed_in? %>
+            <%= link_to event_path(event) do %>
+              <div class="card-product window-card">
+                <% if event.images.attached? %>
+                  <%= cl_image_tag event.images[0].key, crop: :fill %>
+                <% end %>
+                <div class="card-product-infos window-card-info">
+                  <h2><%= event.name.titleize %></h2>
+                  <p><%= event.time.to_formatted_s(:short) %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to user_session_path do %>
+              <div class="card-product window-card">
+                <% if event.images.attached? %>
+                  <%= cl_image_tag event.images[0].key, crop: :fill %>
+                <% end %>
+                <div class="card-product-infos window-card-info">
+                  <h2><%= event.name.titleize %></h2>
+                  <p><%= event.time.to_formatted_s(:short) %></p>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-          <div class="card-product-infos window-card-info">
-             <h2><%= event.name.titleize %></h2>
-             <p><%= event.time.to_formatted_s(:short) %></p>
-          </div>
-        </div>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
-</div>
