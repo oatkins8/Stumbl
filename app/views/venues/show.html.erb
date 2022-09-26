@@ -25,19 +25,36 @@
     <div class="scroll-container-two">
       <div class="container">
         <% @venue.events.each do |event| %>
-          <%= link_to event_path(event) do %>
-            <div class="card-product window-card">
-              <%= cl_image_tag event.images[0].key, crop: :fill %>
-              <div class="card-product-infos window-card-info">
-                <h2><%= event.name.titleize %></h2>
-                <p>Time: <%= event.time.to_formatted_s(:time) %></p>
-                <% if event.date == nil %>
-                <p> Please contact Venue for Event date...  </p>
-                <% else %>
-                 <p>Date: <%= event.date.to_formatted_s(:long) %></p>
-                <% end %>
+          <% if user_signed_in? %>
+            <%= link_to event_path(event) do %>
+              <div class="card-product window-card">
+                <%= cl_image_tag event.images[0].key, crop: :fill %>
+                <div class="card-product-infos window-card-info">
+                  <h2><%= event.name.titleize %></h2>
+                  <p>Time: <%= event.time.to_formatted_s(:time) %></p>
+                  <% if event.date == nil %>
+                    <p> Please contact Venue for Event date...  </p>
+                  <% else %>
+                    <p>Date: <%= event.date.to_formatted_s(:long) %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
+          <% else %>
+            <%= link_to user_session_path do %>
+              <div class="card-product window-card">
+                <%= cl_image_tag event.images[0].key, crop: :fill %>
+                <div class="card-product-infos window-card-info">
+                  <h2><%= event.name.titleize %></h2>
+                  <p>Time: <%= event.time.to_formatted_s(:time) %></p>
+                  <% if event.date == nil %>
+                    <p> Please contact Venue for Event date...  </p>
+                  <% else %>
+                    <p>Date: <%= event.date.to_formatted_s(:long) %></p>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

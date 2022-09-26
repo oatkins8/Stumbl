@@ -21,7 +21,8 @@ body {
 }
 
 .nav-min-height {
-  min-height: calc(100vh - 66.7px);
+  // min-height: calc(100vh - 66.7px);
+  min-height: 100vh;
 }
 
 
