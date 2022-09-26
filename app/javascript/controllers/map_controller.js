@@ -20,7 +20,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
 
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl }))
+    //   mapboxgl: mapboxgl ll}))
 
     const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
