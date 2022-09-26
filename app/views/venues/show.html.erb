@@ -21,7 +21,7 @@
   <br>
   <p> <%= @venue.about %></p>
   <h4 style="font-weight: bolder; color: #09495D; text-align: center">Events Happening Here</h4>
-  <div>
+  <div style="padding-bottom: 85px">
     <div class="scroll-container-two">
       <div class="container">
         <% @venue.events.each do |event| %>
@@ -59,7 +59,11 @@
         <% end %>
       </div>
     </div>
+    <% if user_signed_in? %>
     <p><%= link_to "Add Event", new_venue_event_path(@venue), class: "button-general" %></p>
+    <% else %>
+    <p><%= link_to "Add Event", user_session_path , class: "button-general" %></p>
+    <% end %>
   </div>
 </div>
 </div>
