@@ -80,11 +80,18 @@
 
 }
 
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 .scroll-container-two {
   overflow: scroll;
   height: 250px;
+  margin-bottom: 20px;
 }
-
+.scroll-container-two::-webkit-scrollbar {
+  display: none;
+}
 
 .input-style {
   border-radius: 40px;
