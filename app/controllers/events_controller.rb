@@ -3,23 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:toggle_favorite]
 
   def index
-    # Using search bar to filter events if query was typed...
-    if params[:query].present?
-      sql_query = <<~SQL
-        events.name @@ :query
-        OR events.category @@ :query
-        OR events.genre @@ :query
-        OR events.producer @@ :query
-        OR venues.name @@ :query
-      SQL
-      # @events is all the events joins with all the venues with the SQL query params applied
-      @events = policy_scope(Event).joins(:venue).where(sql_query, query: "%#{params[:query]}%")
-    else
-      # if nothing is typed in the search it shows all the events..
-      @events = policy_scope(Event)
-    end
-
-    params.delete_if { |key, _| params[key] == 'Any' || params[key].nil? }
+    @events = policy_scope(Event)
+    params.delete_if { |key, _| params[key] == 'Any'}
     @events = Event.filter(params.slice(:category, :genre))
     @events = @events.select { |event| event.price_range == params[:price] } if params[:price].present?
 
