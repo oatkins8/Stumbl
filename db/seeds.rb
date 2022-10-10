@@ -96,7 +96,7 @@ def event_one
     name: "Mahjong Happy Hour x Lan Su Gardens",
     mini_description: "Lan Su Gardens",
     producer: "Lan Su Gardens",
-    price: 0,
+    price: 5,
     category: "Food & Drink",
     venue: venue,
     time: Faker::Time.forward(days: 5, period: :evening, format: :long),
@@ -277,7 +277,7 @@ def event_six
   event = Event.new(
     name: "Live music: Pop Soul night",
     producer: "Hoxton Cabin",
-    price: 0,
+    price: 12,
     category: "Music",
     genre: "Pop",
     venue: venue,
@@ -311,7 +311,7 @@ def event_seven
     name: "Jazz Grooves",
     producer: "James Coleman",
     mini_description: "Every Friday from 10.30pm to 3.00am",
-    price: 0,
+    price: 15,
     category: "Music",
     genre: "Jazz",
     venue: venue,
@@ -345,7 +345,7 @@ def event_eight
     name: "Open cocktail class",
     producer: "@drinks.by.david",
     mini_description: "DM to hold a table or just walk in!",
-    price: 0,
+    price: 5,
     category: "Food & Drink",
     venue: venue,
     time: "September 16, 2022 18:00",
@@ -360,4 +360,4 @@ event_eight
 
 puts "done"
 
-# this is the 0941 change
+# this is the change
