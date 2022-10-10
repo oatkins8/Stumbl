@@ -6,7 +6,6 @@ class Event < ApplicationRecord
 
   def price_range
     price = price_cents / 100
-    p price
     case price
     when nil
       "Error"
