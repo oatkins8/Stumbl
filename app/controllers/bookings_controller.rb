@@ -8,8 +8,7 @@ class BookingsController < ApplicationController
     @booking.state = "pending"
     @booking.amount = @event.price * @booking.quantity
     authorize @booking
-    if @booking.amount.zero?
-      @booking.save
+    if @booking.save && @booking.amount.zero?
       redirect_to current_user
     elsif @booking.save
       session = Stripe::Checkout::Session.create(
