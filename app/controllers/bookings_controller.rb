@@ -8,7 +8,9 @@ class BookingsController < ApplicationController
     @booking.state = "pending"
     @booking.amount = @event.price * @booking.quantity
     authorize @booking
-    if @booking.save
+    if @booking.save && @booking.amount.zero?
+      redirect_to current_user
+    elsif @booking.save
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [
@@ -28,7 +30,6 @@ class BookingsController < ApplicationController
       )
       @booking.update(checkout_session_id: session.id)
       redirect_to new_event_booking_payment_path(@event, @booking)
-
     else
       render "events/show", status: :unprocessable_entity
     end
