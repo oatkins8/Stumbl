@@ -2,8 +2,12 @@ require "application_system_test_case"
 
 class VenuesTest < ApplicationSystemTestCase
   test "same number of markers displayed as venues in db" do
+    # create a number of venues
     visit root_url
+    # action
     assert_selector ".marker", count: Venue.count
+    # assertion
+    # fixtures
   end
 
   test "A signed in user can create a venue" do
