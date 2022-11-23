@@ -1,0 +1,5 @@
+alex:
+  email: "alex@mail.com"
+  encrypted_password: stumbl
+  first_name: "alex"
+  last_name: "dicarlo"
