@@ -10,4 +10,13 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  # Devise test helpers
+  include Warden::Test::Helpers
+  Warden.test_mode! # warden is a gem which is the foundation of devise
+
+  # Add more helper methods to be used by all tests here...
 end
+
+Capybara.save_path = Rails.root.join("tmp/capybara")
+# a library that allows us to test our code with a browser
+# need to setup which browser we will use for testing
