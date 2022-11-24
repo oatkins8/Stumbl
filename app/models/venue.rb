@@ -1,4 +1,6 @@
 class Venue < ApplicationRecord
+  # attr_default :location, "Shoreditch High Street, Hackney, London, E1 6JE, United Kingdom"
+
   before_validation :set_defaults
 
   belongs_to :user
@@ -19,6 +21,6 @@ class Venue < ApplicationRecord
   private
 
   def set_defaults
-    location = "Shoreditch High Street, Hackney, London, E1 6JE, United Kingdom" if location.blank?
+    self.location = "Shoreditch High Street, Hackney, London, E1 6JE, United Kingdom" if location.blank?
   end
 end

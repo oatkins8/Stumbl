@@ -21,14 +21,13 @@ class VenuesTest < ApplicationSystemTestCase
     attach_file "venue_photos", "#{Rails.root}/test/fixtures/files/starbucks_3.jpeg"
 
     click_on "Submit"
-    save_and_open_screenshot
+    visit "users/:id"
+    click_on "My Venues"
+
 
     # assert_text "Event Name"
-
-    visit "users/:id"
-
-    click_on "My Venues"
     assert_selector ".card-product-user", count: Venue.count
+    save_and_open_screenshot
   end
 end
 
