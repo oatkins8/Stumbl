@@ -3,7 +3,8 @@
       <h1>Add your venue</h1>
     <%= simple_form_for @venue do |f| %>
     <%= f.input :name, label: false, placeholder: 'Venue name' %>
-    <%= f.input input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+    <%= f.input :location,
+                input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
                 wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
                 label: 'Location'
                 %>

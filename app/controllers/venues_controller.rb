@@ -7,6 +7,7 @@ class VenuesController < ApplicationController
   end
 
   def new
+    # @skip_navbar = true
     @events = Event.all
     @venue = Venue.new
     authorize @venue

@@ -1,28 +1,16 @@
 require "application_system_test_case"
 
 class VenuesTest < ApplicationSystemTestCase
-  test "same number of markers displayed as venues in db" do
-    # create a number of venues
-    visit root_url
-    # action
-    assert_selector ".marker", count: Venue.count
-    # assertion
-    # fixtures
-  end
-
   test "A signed in user can create a venue" do
-    # visit "users/sign_in"
+    visit "users/sign_in"
     login_as users(:alex)
-    # save_and_open_screenshot
     visit "users/:id"
-
 
     click_on "My Venues"
     click_on "New Venue"
-    # save_and_open_screenshot
 
     fill_in "venue_name", with: "Venue Name"
-    fill_in "Location", with: "Shoreditch"
+    fill_in("Location", with: "Shoreditch High Street")
     fill_in "venue_about", with: "Venue Description"
     fill_in "venue_website", with: ""
     fill_in "venue_facebook", with: ""
@@ -34,7 +22,13 @@ class VenuesTest < ApplicationSystemTestCase
 
     click_on "Submit"
     save_and_open_screenshot
-    assert_text "Event Name"
+
+    # assert_text "Event Name"
+
+    visit "users/:id"
+
+    click_on "My Venues"
+    assert_selector ".card-product-user", count: Venue.count
   end
 end
 
