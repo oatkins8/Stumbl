@@ -16,7 +16,7 @@ class Event < ApplicationRecord
     when 10.00..19.99
       "Under £20"
     else
-      "Over £20"
+      "£20 or Over"
     end
   end
 
@@ -27,14 +27,14 @@ class Event < ApplicationRecord
   include PgSearch::Model
   has_many_attached :images
   monetize :price_cents
-  pg_search_scope :global_search,
-                  against: [ :name, :category, :genre, :producer ],
-                  associated_against: {
-                    venue: [ :name, :location]
-                  },
-                  using: {
-                    tsearch: { prefix: true }
-                  }
+  # pg_search_scope :global_search,
+  #                 against: [ :name, :category, :genre, :producer ],
+  #                 associated_against: {
+  #                   venue: [ :name, :location]
+  #                 },
+  #                 using: {
+  #                   tsearch: { prefix: true }
+  #                 }
 
   # validates :name, presence: true, length: { in: 2..100 }
   # validates :date, presence: true
