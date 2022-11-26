@@ -105,3 +105,5 @@ gem 'acts_as_favoritor'
 gem 'rest-client'
 
 gem 'faraday'
+
+gem 'attribute-defaults'
