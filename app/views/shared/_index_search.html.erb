@@ -1,35 +1,36 @@
- <%= form_with url: events_path, method: :get do |event| %>
-  <div class="card-search">
-    <div class="card-body">
-      <div class="mb-3">
-        <%= event.label "What kind of event are you looking for?", { class: "form-label"} %> <br>
-        <%= event.select(:category, [["Any"],["Activity"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
+<%= form_with url: events_path, method: :get do |event| %>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 my-2 px-6 shadow rounded-lg sm:px-10">
+      <div class="py-1">
+        <%= event.label "What kind of event are you looking for?", { class: "block text-sm font-medium text-gray-700" } %>
+        <%= event.select(:category, [["Any"],["Activity"], ["Sport"], ["Music"], ["Art"], ["Cinema"], ["Food & Drink"] ],
           {value: params[:category]},
-          {class: "form-control input-style "}) %>
+          {class: "w-full border-gray-300 rounded-lg shadow-sm focus:border-green focus:ring-green"}) %>
       </div>
-      <div class="mb-3">
-        <%= event.label "If you chose music, which genre?", { class: "form-label"} %> <br>
+      <div class="py-1">
+        <%= event.label "Genre (if applicable)", { class: "block text-sm font-medium text-gray-700" } %>
         <%= event.select(:genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
           {value: params[:genre]},
-          {class: "form-control input-style"})%>
+          {class: "w-full border-gray-300 rounded-lg shadow-sm focus:border-green focus:ring-green"})%>
       </div>
-      <div class="mb-3">
-        <%= event.label "Ticket price", { class: "form-label"} %> <br>
-        <%= event.select( :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["Over £20"]],
+      <div class="py-1">
+        <%= event.label "Ticket price", { class: "block text-sm font-medium text-gray-700" } %>
+        <%= event.select( :price, [["Any"], ["Free"], ["Under £10"], ["Under £20"], ["£20 or Over"]],
           {value: params[:price]},
-          {class: "form-control input-style"}) %>
+          {class: "w-full border-gray-300 rounded-lg shadow-sm focus:border-green focus:ring-green"}) %>
       </div>
       <div data-controller="address-autocomplete" data-address-autocomplete-api-key-value="<%= ENV["MAPBOX_API_KEY"]%>">
+        <label class="block text-sm font-medium text-gray-700 pb-2" for="Location">Location</label>
         <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
       </div>
-      <div class="d-flex" style="margin-top: 10px; margin-bottom: 15px;">
-      <div>
-        <label class="form-label">Radius</label> <br>
-        <input type="range" name ="radius" step="1" value="6" min="1" max="10" oninput="this.nextElementSibling.value = this.value">
-        <output>6</output>
+      <div class="flex style="margin-top: 10px; margin-bottom: 15px;">
+        <div class="w-1/2>
+          <label class="block text-sm font-medium text-gray-700" for="Event Genre">Radius</label>
+          <input type="range" min="1" max="10" value="6" name="radius" step="1" oninput="this.nextElementSibling.value = this.value" class="form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-green focus:ring-green focus:shadow-none"/>
+          <output class="block text-sm font-medium text-gray-700">6</output>
+        </div>
+        <%= submit_tag "Search", class: "w-1/2 custom-button" %>
       </div>
-      <%= submit_tag "Search", class: "custom-button" %>
-     </div>
     </div>
   </div>
 <% end %>
