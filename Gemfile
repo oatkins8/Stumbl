@@ -108,3 +108,5 @@ gem 'rest-client'
 gem 'faraday'
 
 gem 'attribute-defaults'
+
+gem "tailwindcss-rails", "~> 2.0"
