@@ -15,7 +15,8 @@ USER_ONE = User.create!(
   last_name: "Admin",
   email: "main@mail.com",
   password: "stumbl",
-  age: rand(15..60)
+  age: rand(15..60),
+  photo: "rob_baby.jpg"
 )
 
 USER_TWO = User.create!(
@@ -23,7 +24,8 @@ USER_TWO = User.create!(
   last_name: "Atkins",
   email: "ollie@mail.com",
   password: "stumbl",
-  age: rand(15..60)
+  age: rand(15..60),
+  photo: "temp_logo.png"
 )
 
 USER_THREE = User.create!(

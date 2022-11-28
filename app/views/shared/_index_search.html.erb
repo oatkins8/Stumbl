@@ -26,8 +26,8 @@
       <div class="flex style="margin-top: 10px; margin-bottom: 15px;">
         <div class="w-1/2">
           <label class="block text-sm font-medium text-gray-700" for="Event Genre">Radius</label>
-          <input type="range" min="1" max="10" value="6" name="radius" step="1" oninput="this.nextElementSibling.value = this.value" class="form-range appearance-none w-full h-6 p-0 bg-transparen focus:shadow-none"/>
-          <output class="block text-sm font-medium text-gray-700">6</output>
+          <input type="range" min="1" max="10" value="1" name="radius" step="1" oninput="this.nextElementSibling.value = this.value + 'km'" class="form-range appearance-none w-full h-6 p-0 bg-transparen focus:shadow-none"/>
+          <output class="block text-sm font-medium text-gray-700">1km</output>
         </div>
         <%= submit_tag "Search", class: "w-1/2 custom-button" %>
       </div>
