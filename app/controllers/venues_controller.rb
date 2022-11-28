@@ -1,14 +1,14 @@
 class VenuesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   def show
-    @skip_navbar = true
+    @skip_navbar = true # system test
     @events = Event.all
     @venue = Venue.find(params[:id])
     authorize @venue
   end
 
   def new
-    @skip_navbar = true
+    @skip_navbar = true # system test
     @events = Event.all
     @venue = Venue.new
     authorize @venue

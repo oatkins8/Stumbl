@@ -9,7 +9,7 @@
       </div>
       <div class="py-1">
         <%= event.label "Genre (if applicable)", { class: "block text-sm font-medium text-gray-700" } %>
-        <%= event.select(:genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"]],
+        <%= event.select(:genre, [["Any"],["Electronic"], ["DJ"], ["Indie"], ["Rock"], ["Techno"], ["Hip-hop"], ["Disco"], ["Jazz"], ["Pop"]],
           {value: params[:genre]},
           {class: "w-full border-gray-300 rounded-lg shadow-sm"})%>
       </div>
@@ -24,7 +24,7 @@
         <input data-address-autocomplete-target="address" class="d-none" label="Location" type="text" name="location" id="location">
       </div>
       <div class="flex style="margin-top: 10px; margin-bottom: 15px;">
-        <div class="w-1/2>
+        <div class="w-1/2">
           <label class="block text-sm font-medium text-gray-700" for="Event Genre">Radius</label>
           <input type="range" min="1" max="10" value="6" name="radius" step="1" oninput="this.nextElementSibling.value = this.value" class="form-range appearance-none w-full h-6 p-0 bg-transparen focus:shadow-none"/>
           <output class="block text-sm font-medium text-gray-700">6</output>
