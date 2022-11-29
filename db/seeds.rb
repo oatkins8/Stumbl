@@ -36,6 +36,7 @@ USER_THREE = User.create!(
   age: rand(15..60)
 )
 
+
 puts "created #{USER_ONE[:first_name]} #{USER_ONE[:last_name]}!"
 
 url = "https://www.songkick.com/metro-areas/24426-uk-london?page=1#metro-area-calendar"
