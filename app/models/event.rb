@@ -2,9 +2,7 @@ class Event < ApplicationRecord
   include Filterable
   scope :category, ->(category) { where(category: category) }
   scope :genre, ->(genre) { where(genre: genre) }
-  # scope :price, ->(price) { where(price: price) }
-
-
+  # [...]
 
   def price_range
     price = price_cents / 100

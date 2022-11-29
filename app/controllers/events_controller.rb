@@ -12,7 +12,6 @@ class EventsController < ApplicationController
       event.venue if event.venue.geocoded?
     end
 
-    # we are creating a new array @venues which stores all of the @events that have a geocoded venue attached
     if params[:location].present?
       near = Venue.near(params[:location], params[:radius], units: :km)
       @venues = @venues.select { |venue| near.include?(venue) }
