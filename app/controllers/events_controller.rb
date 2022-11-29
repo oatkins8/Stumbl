@@ -8,11 +8,9 @@ class EventsController < ApplicationController
     @events = Event.filter(params.slice(:category, :genre))
     @events = @events.select { |event| event.price_range == params[:price] } if params[:price].present?
 
-    # we are creating a new array @venues which stores all of the @events that have a geocoded venue attached
     @venues = @events.map do |event|
       event.venue if event.venue.geocoded?
     end
-
 
     if params[:location].present?
       near = Venue.near(params[:location], params[:radius], units: :km)
@@ -26,7 +24,7 @@ class EventsController < ApplicationController
         lat: venue.latitude,
         lng: venue.longitude,
         info_window: render_to_string(partial: "info_window", locals: {venue: venue}),
-        image_url: helpers.asset_url("logooooo.png")
+        image_url: helpers.asset_url("stumbl_logo.png")
       }
     end
   end

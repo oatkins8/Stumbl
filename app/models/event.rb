@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   include Filterable
   scope :category, ->(category) { where(category: category) }
   scope :genre, ->(genre) { where(genre: genre) }
-  scope :price, ->(price) { where(price: price) }
+  # [...]
 
   def price_range
     price = price_cents / 100
@@ -24,9 +24,9 @@ class Event < ApplicationRecord
   acts_as_favoritable
   has_many :bookings, dependent: :destroy
   belongs_to :venue
-  include PgSearch::Model
   has_many_attached :images
   monetize :price_cents
+  # include PgSearch::Model
   # pg_search_scope :global_search,
   #                 against: [ :name, :category, :genre, :producer ],
   #                 associated_against: {
